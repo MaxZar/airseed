@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def new
     @idea = Idea.find(params[:idea_id])
     @booking = Booking.new(idea: @idea)
