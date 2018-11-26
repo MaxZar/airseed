@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_26_153134) do
+ActiveRecord::Schema.define(version: 2018_11_26_161511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2018_11_26_153134) do
     t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "request_message"
+    t.boolean "validated", default: false
     t.index ["idea_id"], name: "index_bookings_on_idea_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
