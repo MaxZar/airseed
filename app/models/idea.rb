@@ -7,5 +7,4 @@ class Idea < ApplicationRecord
   validates :category, presence: true
   validates :start_date, presence: true
   validates :end_date, presence: true
-  validates :minimum_application_duration, presence: true
 end
