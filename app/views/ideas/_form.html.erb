@@ -1,0 +1,12 @@
+<%= simple_form_for [@idea] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :category %>
+  <%= f.input :revenue_model %>
+  <%= f.input :pricing %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :minimum_duration %>
+  <%= f.input :application_criteria %>
+  <%= f.submit "add an Idea", class: "btn btn-primary" %>
+<% end %>
