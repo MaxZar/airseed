@@ -7,3 +7,8 @@ class Booking < ApplicationRecord
   validates :end_date, presence: true
   validates :request_message, presence: true, length: { minimum: 100 }
 end
+
+
+
+
+#comment
