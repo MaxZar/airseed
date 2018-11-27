@@ -12,6 +12,7 @@ Booking.destroy_all
 Idea.destroy_all
 User.destroy_all
 
+p "create users"
 users_array = []
 10.times do
   first_name = Faker::Name.first_name
@@ -20,7 +21,6 @@ users_array = []
     email: Faker::Internet.email("#{first_name} #{last_name}", '_'),
     first_name: first_name,
     last_name: last_name,
-    photo: admin_avatar.png,
     admin: false,
     # password: Faker::Internet.password(10, 20)
     password: "kalgrogo"
@@ -104,6 +104,7 @@ User.all.each do |user|
 end
 Idea.create!(ideas_array)
 
+p "create bookings"
 bookings_array = []
 
 20.times do
@@ -133,6 +134,7 @@ end
 
 Booking.create!(bookings_array)
 
+p "create reviews"
 reviews_array = []
 Booking.all.each do |booking|
   my_hash = {
