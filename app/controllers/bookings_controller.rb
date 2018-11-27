@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+    skip_after_action :verify_authorized
+    skip_after_action :verify_policy_scoped
   def new
     @idea = Idea.find(params[:idea_id])
     @booking = Booking.new(idea: @idea)
