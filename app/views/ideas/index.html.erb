@@ -9,16 +9,24 @@
 <div class="container">
   <div class="row">
     <% @ideas.each do |idea| %>
-      <h2><%= idea.title %></h2>
-      <p><%= idea.description %></p>
-      <% if policy(idea).edit? %>
-      <p><%= link_to "Edit", edit_idea_path(idea) %></p>
-      <% end %>
-      <% if policy(idea).edit? %>
-      <p><%= link_to "Delete", idea_path(idea),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %></p>
-      <% end %>
+      <% my_background = idea.photo.blank? ? "default.png" : idea.photo %>
+      <div class="card"
+        style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+        url('<%= cl_image_path my_background, height: 300, width: 400, crop: :fill %>')">
+          <div class="card-category"><%= idea.title %></div>
+            <div class="card-description">
+              <p><%= idea.description %></p>
+            </div>
+            <% if policy(idea).edit? %>
+              <a class="card-link" ><%= link_to "Edit", edit_idea_path(idea) %></a>
+            <% end %>
+            <% if policy(idea).destroy? %>
+              <a class="card-link" ><%= link_to "Delete", idea_path(idea),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+              </a>
+            <% end %>
+      </div>
     <% end %>
   </div>
 </div>

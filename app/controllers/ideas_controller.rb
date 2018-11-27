@@ -66,8 +66,8 @@ class IdeasController < ApplicationController
       :start_date,
       :end_date,
       :minimum_application_duration,
-      :application_criteria
+      :application_criteria,
+      :photo
       )
   end
-
 end
