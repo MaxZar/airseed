@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2018_11_27_130527) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "request_message"
-    t.boolean "validated", default: false
+    t.boolean "validated"
     t.index ["idea_id"], name: "index_bookings_on_idea_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
