@@ -2,6 +2,8 @@
   <div class="row">
     <h2><%= @idea.title %></h2>
     <%= link_to 'Book', new_idea_booking_path(@idea) %>
+    <p><%= @idea.description %></p>
+    <p><%= cl_image_tag @idea.photo, height: 300, width: 400, crop: :fill %></p>
     <p><%= @idea.category %></p>
     <p><%= @idea.description %></p>
     <p><%= cl_image_tag @idea.photo, height: 300, width: 400, crop: :fill %></p>
