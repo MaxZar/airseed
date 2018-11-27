@@ -1,4 +1,13 @@
-<%= simple_form_for [@idea] do |f| %>
+<%= simple_form_for @idea do |f| %>
+ <% if @idea.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @idea.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :category %>
