@@ -19,6 +19,7 @@ class IdeasController < ApplicationController
   end
 
   def edit
+    authorize @idea
   end
 
   def update
@@ -34,7 +35,7 @@ class IdeasController < ApplicationController
   end
 
   def index
-    @ideas = Idea.all
+    @ideas = policy_scope(Idea).order(created_at: :desc)
   end
 
   def destroy
