@@ -9,6 +9,8 @@ gem 'rails', '5.2.1'
 gem 'redis'
 gem 'faker'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'

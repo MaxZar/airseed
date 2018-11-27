@@ -7,9 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-
+puts "Destroy all"
+Idea.destroy_all
 User.destroy_all
 
+puts "Create Users"
 user_array = []
 
 10.times do
@@ -24,10 +26,47 @@ user_array = []
   user_array << my_hash
 end
 
+
 User.create!(user_array)
 
+puts "Create Ideas"
 
-Idea.destroy_all
+first_idea = Idea.create!(
+  user_id: User.order("RANDOM()").first.id,
+  title: "AlloChien",
+  description: "A revolutionary idea for woldwide dog lovers. Learn the pedigree of a random dog with allochien. He barks, and we make the wold's best IA run to retrieve his pedigree. First tests are enthoutiastic. YC has already given 10B$. What's next ?",
+  category: "Pet industry",
+  revenue_model: "Subscription",
+  pricing: rand(100..200),
+  start_date: Faker::Date.forward(1),
+  end_date: Faker::Date.forward(100 + rand(1..100)),
+  minimum_duration: rand(1..3),
+  application_criteria: "any"
+)
+
+url = "https://images.unsplash.com/photo-1505628346881-b72b27e84530?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8ecbdf99ad1c8e52f00c7f6682a27f27&auto=format&fit=crop&w=934&q=80"
+first_idea.remote_photo_url = url
+first_idea.save
+
+
+second_idea = Idea.create!(
+  user_id: User.order("RANDOM()").first.id,
+  title: "Lobster Farm in France",
+  description: "Everyone loves lobsters and they are so expansive. There are no farms...yet. I have been engineering a farm protocol which is working perfectly fine",
+  category: "Food",
+  revenue_model: "Selling lobsters",
+  pricing: rand(100..200),
+  start_date: Faker::Date.forward(1),
+  end_date: Faker::Date.forward(100 + rand(1..100)),
+  minimum_duration: rand(1..3),
+  application_criteria: "any"
+)
+
+url = "https://images.unsplash.com/photo-1533637224197-c90880aa997c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3a7daa8b052b8610bc402cc80f39facc&auto=format&fit=crop&w=976&q=80"
+second_idea.remote_photo_url = url
+second_idea.save
+
+
 idea_array = []
 10.times do
   my_hash = {

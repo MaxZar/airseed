@@ -9,12 +9,21 @@
 <div class="container">
   <div class="row">
     <% @ideas.each do |idea| %>
-      <h2><%= idea.title %></h2>
-      <p><%= idea.description %></p>
-      <p><%= link_to "Edit", edit_idea_path(idea) %></p>
-      <p><%= link_to "Delete", idea_path(idea),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %></p>
+      <% my_background = idea.photo.blank? ? "default.png" : idea.photo %>
+      <div class="card"
+        style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+        url('<%= cl_image_path my_background, height: 300, width: 400, crop: :fill %>')">
+          <div class="card-category"><%= idea.title %></div>
+            <div class="card-description">
+              <p><%= idea.description %></p>
+              <p><%= link_to "Edit", edit_idea_path(idea) %></p>
+            </div>
+            <a class="card-link" ><%= link_to "Edit", edit_idea_path(idea) %></a>
+            <a class="card-link" ><%= link_to "Delete", idea_path(idea),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+            </a>
+      </div>
     <% end %>
   </div>
 </div>
