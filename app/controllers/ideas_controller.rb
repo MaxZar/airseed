@@ -1,11 +1,15 @@
 class IdeasController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   before_action :set_idea, only: [:update, :show, :edit, :destroy]
 
   def new
+    record.user == user
+    record.user == user
     @idea = Idea.new
   end
 
   def create
+    record.user == user
     @idea = Idea.new(idea_params)
     if @idea.save
       redirect_to idea_path(@idea)
@@ -18,6 +22,7 @@ class IdeasController < ApplicationController
   end
 
   def update
+    record.user == user
     if @idea.update(idea_params)
      redirect_to idea_path(@idea)
     else
@@ -33,7 +38,9 @@ class IdeasController < ApplicationController
   end
 
   def destroy
+    record.user == user
     @idea.destroy
+    redirect_to ideas_path
   end
 
   def search
