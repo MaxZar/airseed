@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 2018_11_27_165017) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo"
+    t.integer "upvotes", default: 0
+    t.float "avratings", default: 0.0
     t.index ["user_id"], name: "index_ideas_on_user_id"
   end
 
