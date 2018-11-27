@@ -20,6 +20,7 @@ users_array = []
     email: Faker::Internet.email("#{first_name} #{last_name}", '_'),
     first_name: first_name,
     last_name: last_name,
+    photo: admin_avatar.png,
     admin: false,
     # password: Faker::Internet.password(10, 20)
     password: "kalgrogo"
