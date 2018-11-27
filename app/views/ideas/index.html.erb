@@ -16,13 +16,16 @@
           <div class="card-category"><%= idea.title %></div>
             <div class="card-description">
               <p><%= idea.description %></p>
-              <p><%= link_to "Edit", edit_idea_path(idea) %></p>
             </div>
-            <a class="card-link" ><%= link_to "Edit", edit_idea_path(idea) %></a>
-            <a class="card-link" ><%= link_to "Delete", idea_path(idea),
+            <% if policy(idea).edit? %>
+              <a class="card-link" ><%= link_to "Edit", edit_idea_path(idea) %></a>
+            <% end %>
+            <% if policy(idea).destroy? %>
+              <a class="card-link" ><%= link_to "Delete", idea_path(idea),
               method: :delete,
               data: { confirm: "Are you sure?" } %>
-            </a>
+              </a>
+            <% end %>
       </div>
     <% end %>
   </div>
