@@ -1,15 +1,29 @@
 <div class="container">
   <div class="row">
     <h2><%= @idea.title %></h2>
-    <p><%= @idea.description %></p>
-    <p><%= cl_image_tag @article.photo, height: 300, width: 400, crop: :fill %></p>
+    <%= link_to 'Book', new_idea_booking_path(@idea) %>
     <p><%= @idea.category %></p>
+    <p><%= @idea.description %></p>
+    <p><%= cl_image_tag @idea.photo, height: 300, width: 400, crop: :fill %></p>
+    <h3>Revenue Model and pricing</h3>
     <p><%= @idea.revenue_model %></p>
-    <p><%= @idea.pricing %></p>
-    <p><%= @idea.start_date %></p>
-    <p><%= @idea.end_date %></p>
-    <p><%= @idea.minimum_duration %></p>
+    <p><%= @idea.pricing %> € per day</p>
+    <div>
+    <p> this idea is available from <%= @idea.start_date %> to <%= @idea.end_date %></p>
+    </div>
+    <p> <%= @idea.minimum_duration %> day</p>
+    <h3>Application Criteria</h3>
     <p><%= @idea.application_criteria %></p>
+    <h3>Creator information</h3>
+    <p><%= @idea.user.first_name %> <%= @idea.user.last_name %></p>
+
+
+    <h3>Previous reviews</h3>
+    <ul>
+      <% @idea.reviews.each do |r| %>
+        <li> <%= '*' * r.rating %> | <%= r.comment %> </li>
+      <% end %>
+    </ul>
   </div>
 </div>
 
