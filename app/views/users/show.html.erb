@@ -1,0 +1,29 @@
+
+<h3>My profile</h3>
+<% my_profile = @user.photo.blank? ? "admin_avatar.png" : idea.photo %>
+
+<div class="card"
+              style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                  url('<%= cl_image_path my_profile, height: 300, width: 400, crop: :fill %>')"
+         ></div>
+
+<p> <%= @user.first_name %> - <%= @user.last_name %> </p>
+<p> <%= @user.email %></p>
+<p> <%= @user.description %></p>
+
+
+<h3>My ideas</h3>
+<% @ideas.each do |idea|%>
+  <p>
+    <%= idea.title %>
+  </p>
+<% end %>
+
+<br>
+
+<h3>My bookings</h3>
+<% @bookings.each do |booking|%>
+  <p>
+    <%= booking.idea.title %>
+  </p>
+<% end %>

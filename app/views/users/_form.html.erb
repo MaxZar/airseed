@@ -1,0 +1,18 @@
+<%= simple_form_for @user do |f| %>
+ <% if @user.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :email %>
+  <%= f.input :description %>
+
+  <%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>
