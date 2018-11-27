@@ -25,7 +25,7 @@ class IdeasController < ApplicationController
   end
 
   def update
-    record.user == user
+    authorize @idea
     if @idea.update(idea_params)
      redirect_to idea_path(@idea)
     else
