@@ -7,10 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-
+Review.destroy_all
+Booking.destroy_all
+Idea.destroy_all
 User.destroy_all
 
-user_array = []
+users_array = []
 
 10.times do
   first_name = Faker::Name.first_name
@@ -19,29 +21,74 @@ user_array = []
     email: Faker::Internet.email("#{first_name} #{last_name}", '_'),
     first_name: first_name,
     last_name: last_name,
-    password: Faker::Internet.password(10, 20)
+    # password: Faker::Internet.password(10, 20)
+    password: "kalgrogo"
   }
-  user_array << my_hash
+  users_array << my_hash
 end
 
-User.create!(user_array)
+User.create!(users_array)
 
 
-Idea.destroy_all
-idea_array = []
-10.times do
+
+ideas_array = []
+User.all.each do |user|
+  5.times do
+    my_hash = {
+      user_id: user.id,
+      # user_id: User.order("RANDOM()").first.id,
+      title: Faker::Commerce.product_name,
+      description: Faker::Lorem.paragraph_by_chars(rand(100..500), false),
+      category: Faker::Company.industry,
+      revenue_model: "",
+      pricing: rand(100..200),
+      start_date: Faker::Date.forward(1),
+      end_date: Faker::Date.forward(100 + rand(1..100)),
+      minimum_duration: rand(1..3),
+      application_criteria: "any"
+    }
+    ideas_array << my_hash
+  end
+end
+Idea.create!(ideas_array)
+
+bookings_array = []
+
+20.times do
+  available_idea = false
+  unless available_idea
+    idea = Idea.order("RANDOM()").first
+    available_idea = true if !bookings_array.include?(idea)
+  end
+  user_is_creator = true
+  while user_is_creator
+    attempt = User.order("RANDOM()").first
+    if attempt.id != idea.user_id
+      user_is_creator = false
+      user_id = attempt.id
+    end
+  end
+
   my_hash = {
-    user_id: User.order("RANDOM()").first.id,
-    title: Faker::Commerce.product_name,
-    description: Faker::Lorem.paragraph_by_chars(rand(100..500), false),
-    category: Faker::Company.industry,
-    revenue_model: "",
-    pricing: rand(100..200),
-    start_date: Faker::Date.forward(1),
-    end_date: Faker::Date.forward(100 + rand(1..100)),
-    minimum_duration: rand(1..3),
-    application_criteria: "any"
+    idea_id: idea.id,
+    user_id: user_id,
+    start_date: idea.start_date,
+    end_date: idea.end_date,
+    request_message: Faker::Lorem.paragraph_by_chars(rand(100..500), false)
   }
-  idea_array << my_hash
+  bookings_array << my_hash
 end
-Idea.create!(idea_array)
+
+Booking.create!(bookings_array)
+
+reviews_array = []
+Booking.all.each do |booking|
+  my_hash = {
+    booking_id: booking.id,
+    rating: rand(1..5),
+    comment: Faker::Lorem.paragraph_by_chars(rand(100..500), false)
+  }
+  reviews_array << my_hash
+end
+
+Review.create!(reviews_array)
