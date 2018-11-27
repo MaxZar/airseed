@@ -2,10 +2,12 @@ class IdeasController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   before_action :set_idea, only: [:update, :show, :edit, :destroy]
 
+  skip_after_action :verify_authorized
+  skip_after_action :verify_policy_scoped
+
   def new
-    record.user == user
-    record.user == user
     @idea = Idea.new
+    authorize @idea
   end
 
   def create
@@ -39,7 +41,7 @@ class IdeasController < ApplicationController
   end
 
   def destroy
-    record.user == user
+    authorize @idea
     @idea.destroy
     redirect_to ideas_path
   end

@@ -35,7 +35,7 @@ class ApplicationPolicy
   end
 
   def user_is_owner_or_admin?
-    record.user == user
+    record.user == user || (user.nil? ? false : user.admin?)
   end
 
   class Scope

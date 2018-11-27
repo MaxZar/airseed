@@ -14,9 +14,11 @@
       <% if policy(idea).edit? %>
       <p><%= link_to "Edit", edit_idea_path(idea) %></p>
       <% end %>
+      <% if policy(idea).edit? %>
       <p><%= link_to "Delete", idea_path(idea),
       method: :delete,
       data: { confirm: "Are you sure?" } %></p>
+      <% end %>
     <% end %>
   </div>
 </div>
