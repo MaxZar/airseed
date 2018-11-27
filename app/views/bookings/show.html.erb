@@ -1,3 +1,6 @@
-<h1>Bookings#show</h1>
-<p><%= @booking.start_date %></p>
+<h1>Booking of <%= @booking.idea.title %></h1>
 
+<p>Innovator : <%= @booking.idea.user.first_name %> <%= @booking.idea.user.last_name %></p>
+<p>Entrepreneur : <%= @booking.user.first_name %> <%= @booking.user.last_name %></p>
+<p>Start date : <%= @booking.start_date %></p>
+<p>End date : <%= @booking.end_date %></p>
