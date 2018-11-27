@@ -7,9 +7,9 @@ Rails.application.routes.draw do
     collection do
       get 'ideas/search/:q', to: 'ideas#search', as: 'search'
     end
-    member do
-      resources :bookings, only: [:new, :create]
-    end
+    # member do
+    # end
+    resources :bookings, only: [:new, :create]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :bookings, only: [:show, :edit, :update]

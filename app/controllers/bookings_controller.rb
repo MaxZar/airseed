@@ -9,7 +9,9 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.idea = @idea
     @booking.user = current_user
+    raise
     if @booking.save
+      raise
       render :show
     else
       render :new
