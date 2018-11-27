@@ -10,11 +10,11 @@ class BookingsController < ApplicationController
     @booking.idea = @idea
     @booking.user = current_user
     raise
-    if @booking.save
-      raise
-      render :show
-    else
-      render :new
+      if @booking.save
+        raise
+        render :show
+      else
+        render :new
     end
   end
 
