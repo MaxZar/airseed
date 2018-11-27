@@ -21,12 +21,23 @@ users_array = []
     email: Faker::Internet.email("#{first_name} #{last_name}", '_'),
     first_name: first_name,
     last_name: last_name,
+    admin: false,
     # password: Faker::Internet.password(10, 20)
     password: "kalgrogo"
   }
   users_array << my_hash
 end
 
+admin_hash =   my_hash = {
+    email: 'master@seed.io',
+    first_name: 'Master',
+    last_name: 'Seed',
+    admin: true,
+    # password: Faker::Internet.password(10, 20)
+    password: "kalgrogo"
+  }
+
+users_array << admin_hash
 User.create!(users_array)
 
 
