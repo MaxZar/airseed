@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :users, only: [:show, :index]
   resources :ideas do
     collection do
       get 'ideas/search/:q', to: 'ideas#search', as: 'search'
