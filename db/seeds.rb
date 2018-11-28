@@ -83,10 +83,9 @@ second_idea.save
 
 
 
-ideas_array = []
 User.all.each do |user|
   5.times do
-    my_hash = {
+    idea = Idea.create!(
       user_id: user.id,
       # user_id: User.order("RANDOM()").first.id,
       title: Faker::Commerce.product_name,
@@ -98,11 +97,11 @@ User.all.each do |user|
       end_date: Faker::Date.forward(100 + rand(1..100)),
       minimum_duration: rand(1..3),
       application_criteria: "any"
-    }
-    ideas_array << my_hash
+    )
+    idea.remote_photo_url = 'https://picsum.photos/300/400/?random'
+    idea.save
   end
 end
-Idea.create!(ideas_array)
 
 p "create bookings"
 bookings_array = []
