@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   def show
     @ideas = Idea.where(user_id: @user.id)
     @bookings = Booking.where(user_id: @user.id)
-
   end
 
   def edit
@@ -34,6 +33,6 @@ class UsersController < ApplicationController
       )
   end
   def set_user
-    @user = User.find(params[:id])
+    @user = current_user
   end
 end

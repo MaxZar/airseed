@@ -14,8 +14,13 @@
 
 <h3>My ideas</h3>
 <% @ideas.each do |idea|%>
+  <% if idea.bookings.where(validated: true).count == 0 %>
+    <% booking_status = "validation pending"  %>
+  <% else %>
+    <% booking_status = "validated" %>
+  <% end %>
   <p>
-    <%= idea.title %>
+    <%= idea.title %> - <%= booking_status  %>
   </p>
 <% end %>
 
