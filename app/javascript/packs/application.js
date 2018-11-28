@@ -9,5 +9,6 @@ import { loadDynamicBannerText } from '../components/banner';
 loadDynamicBannerText();
 
 
+
 import { initMapbox } from '../plugins/init_mapbox';
 initMapbox();
