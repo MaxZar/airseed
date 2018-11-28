@@ -12,7 +12,7 @@ class IdeasController < ApplicationController
 
   def create
     @idea = Idea.new(idea_params)
-    @idea.user_id = current_user.id
+    @idea.user = current_user
     if @idea.save
       redirect_to idea_path(@idea)
     else
@@ -27,9 +27,9 @@ class IdeasController < ApplicationController
   def update
     authorize @idea
     if @idea.update(idea_params)
-     redirect_to idea_path(@idea)
+      redirect_to idea_path(@idea)
     else
-     render :edit
+      render :edit
     end
   end
 

@@ -1,8 +1,8 @@
 .idea {
   display: grid;
   grid-template-columns: 350px 1fr 1fr 1fr;
-  grid-template-rows: 25% 75%;
-  height: calc(100vh - 70px);
+  grid-template-rows: 20% 40% 40%;
+  // height: calc(100vh - 70px);
   padding: 30px;
 }
 .idea .main {
@@ -13,14 +13,35 @@
   grid-row: 2 / span 1;
   grid-column: 2 / span 3;
 }
-.main, .description, .stat {
+
+.idea .reviews {
+  grid-row: 3 / span 1;
+  grid-column: 1 / span 4;
+  display: block;
+}
+
+.main, .description, .stat, .reviews {
   background: white;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  padding: 50px;
+  padding: 40px;
   margin: 10px;
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+.stat {
+  padding: 30px !important;
+  font-size: 10px !important;
+}
+.main .btn {
+  display: block;
+  margin: 0 !important;
+}
+.stat {
+  font-size: 0.8em;
+  h3 {
+    margin: 0;
+  }
 }
 @media (max-width: 940px) {
   .idea {
