@@ -1,12 +1,73 @@
 <div class="container">
+  <div class="idea text-center">
+    <div class="main">
+      <div class="main-content">
+        <p><%= cl_image_tag @idea.photo, height: 180, width: 180, crop: :fill %></p>
+
+        <h2><%= @idea.title %></h2>
+        <p><%= @idea.category %></p>
+        <p> <%= link_to "Book", new_idea_booking_path(@idea), class: "btn btn-primary btn-lg" %> </p>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="stat-content">
+        <p>Price per day</p>
+        <h3><%= @idea.pricing %> €</h3>
+      </div>
+    </div>
+    <div class="stat">
+      <div class="stat-content">
+        <p>Min. duration</p>
+        <h3><%= @idea.minimum_duration %> days</h3>
+      </div>
+      </div>
+    <div class="stat">
+      <div class="stat-content">
+        <p>MAP</p>
+      </div>
+      </div>
+    <div class="description">
+      <div class="description-content text-left">
+        <h3>More about the idea</h3>
+        <p class="text-left">
+          <%= @idea.description %>
+        <h3>Application Criteria</h3>
+        <p class="text-left">
+          <%= @idea.application_criteria %>
+        </p>
+      </div>
+    </div>
+  </div>
+        <h3>Previous reviews</h3>
+    <ul>
+      <% @idea.reviews.each do |r| %>
+        <li> <%= '*' * r.rating %> | <%= r.comment %> </li>
+      <% end %>
+    </ul>
+</div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+<!--
+
+<div class="container">
   <div class="row">
+    <div class="Header">
     <h2><%= @idea.title %></h2>
-    <%= link_to 'Book', new_idea_booking_path(@idea) %>
+    <%= link_to "Book", new_idea_booking_path(@idea), class: "btn-medium" %>
+    </div>
+
+    <div class="Main-information">
+    <p></p>
+
     <p><%= @idea.description %></p>
-    <p><%= cl_image_tag @idea.photo, height: 300, width: 400, crop: :fill %></p>
     <p><%= @idea.category %></p>
-    <p><%= @idea.description %></p>
-    <p><%= cl_image_tag @idea.photo, height: 300, width: 400, crop: :fill %></p>
+    </div>
     <h3>Revenue Model and pricing</h3>
     <p><%= @idea.revenue_model %></p>
     <p><%= @idea.pricing %> € per day</p>
@@ -29,3 +90,4 @@
   </div>
 </div>
 
+ -->

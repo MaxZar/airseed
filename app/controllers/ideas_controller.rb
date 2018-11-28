@@ -11,7 +11,6 @@ class IdeasController < ApplicationController
   end
 
   def create
-    record.user == user
     @idea = Idea.new(idea_params)
     if @idea.save
       redirect_to idea_path(@idea)
