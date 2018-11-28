@@ -11,22 +11,32 @@
 <p> <%= @user.email %></p>
 <p> <%= @user.description %></p>
 
-
 <h3>My ideas</h3>
-<% @ideas.each do |idea|%>
-  <% if idea.bookings.count == 0 %>
-      <% booking_status = "no interest in your idea"  %>
-  <% elsif idea.bookings.where(validated: nil).count == 0 %>
-      <% booking_status = "validation pending"  %>
-  <% elsif idea.bookings.where(validated: true).count > 0 %>
-    <% booking_status = "validated" %>
-  <% else  %>
-    <% booking_status = "refused" %>
-  <% end %>
-  <p>
-    <%= idea.title %> - <%= booking_status  %>
-  </p>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Idea</th>
+      <th>Booking status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @ideas.each do |idea|%>
+      <% if idea.bookings.count == 0 %>
+          <% booking_status = "no interest in your idea"  %>
+      <% elsif idea.bookings.where(validated: nil).count == 0 %>
+          <% booking_status = "validation pending"  %>
+      <% elsif idea.bookings.where(validated: true).count > 0 %>
+        <% booking_status = "validated" %>
+      <% else  %>
+        <% booking_status = "refused" %>
+      <% end %>
+    <tr>
+      <td><%= idea.title %></td>
+      <td><%= booking_status  %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <br>
 
