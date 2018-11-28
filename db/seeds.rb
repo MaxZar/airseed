@@ -80,9 +80,6 @@ second_idea.remote_photo_url = url
 second_idea.save
 
 
-
-
-
 User.all.each do |user|
   5.times do
     idea = Idea.create!(
