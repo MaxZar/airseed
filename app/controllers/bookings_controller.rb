@@ -1,6 +1,8 @@
 class BookingsController < ApplicationController
     skip_after_action :verify_authorized
     skip_after_action :verify_policy_scoped
+    before_action :set_booking, only: [:edit, :show, :update, :accept, :decline]
+
   def new
     @idea = Idea.find(params[:idea_id])
     @booking = Booking.new(idea: @idea)
@@ -18,21 +20,34 @@ class BookingsController < ApplicationController
     end
   end
 
+  def accept
+    @booking.validated = true
+    @booking.save
+    redirect_to users_show_path
+  end
+
+  def decline
+    @booking.validated = false
+    @booking.save
+    redirect_to users_show_path
+  end
+
   def show
-    @booking = Booking.find(params[:id])
   end
 
   def edit
-    @booking = Booking.find(params[:id])
   end
 
   def update
-    @booking = Booking.find(params[:id])
     @booking.update(booking_params)
     redirect_to booking_path(@booking)
   end
 
   private
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :request_message, :validated)

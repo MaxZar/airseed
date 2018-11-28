@@ -6,3 +6,5 @@ initUpdateNavbarOnScroll();
 
 import { loadDynamicBannerText } from '../components/banner';
 loadDynamicBannerText();
+
+// import { toggleButton } from '../components/button';
