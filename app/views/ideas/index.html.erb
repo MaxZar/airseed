@@ -5,34 +5,31 @@
   </p>
   <div class="col-sm-10 col-sm-offset-1" style="margin-top: 60px;">
     <%= form_tag ideas_path, method: :get, class: "display-flex" do %>
-      <div style="display: flex; flex-direction: column; align-items: flex-start; margin-right: 8px; ">
+      <div style="display: flex; flex-direction: column; align-items: flex-start; margin-right: 8px; color: black;">
         <%= label_tag 'name' %>
         <%= text_field_tag :query,
-          params[:query],
-          placeholder: "Find an idea"
+          params[:query]
         %>
       </div>
-      <div style="display: flex; flex-direction: column;  align-items: flex-start; margin-right: 8px;">
+      <div style="display: flex; flex-direction: column;  align-items: flex-start; margin-right: 8px; color: black;">
         <%= label_tag 'category' %>
         <%= select_tag "category",
-          options_for_select(@cat.push(''),'')
+          options_for_select(@cat.push(''), params[:category] ? params[:category] : '')
         %>
       </div>
-      <div style="display: flex; flex-direction: column;  align-items: flex-start; margin-right: 8px;">
+      <div style="display: flex; flex-direction: column;  align-items: flex-start; margin-right: 8px; color: black;">
         <%= label_tag 'max price' %>
         <%= number_field_tag 'max_price',
-          params[:max_price],
-          placeholder: "Maximum price"
+          params[:max_price]
         %>
       </div>
-      <div style="display: flex; flex-direction: column;  align-items: flex-start; margin-right: 8px;">
+      <div style="display: flex; flex-direction: column;  align-items: flex-start; margin-right: 8px; color: black;">
         <%= label_tag 'start_date' %>
         <%= date_field_tag 'start_date',
-            '01/01/2000',
-            class: 'special_input'
+            '01/01/2000'
         %>
       </div>
-      <div style="display: flex; flex-direction: column;  align-items: flex-start; margin-right: 8px;">
+      <div style="display: flex; flex-direction: column;  align-items: flex-start; margin-right: 8px; color: black;">
         <%= label_tag 'end_date' %>
         <%= date_field_tag 'end_date',
           '01/01/2000'
