@@ -23,7 +23,9 @@ gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.1.1'
 gem 'devise'
 gem 'simple_form'
 
-gem "geocoder"
+gem 'geocoder'
+
+gem 'pg_search'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

@@ -3,7 +3,8 @@
   align-items: stretch;
   margin-bottom: $elements-margin;
   .principale {
-    flex: 0 0 60%;
+    flex: 0 0 70%;
+    min-height: 50vh;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
   }
 }
@@ -24,7 +25,6 @@
   flex-direction: column;
 }
 
-}
 .principale .btn {
   display: block;
   margin: 0 !important;
@@ -38,7 +38,7 @@ h2 {
 .principale .btn {
   border-radius: 0;
   border: none;
-  width: 70%;
+  width: 100%;
   margin-top: 30px;
   background: #37B686;
 }
