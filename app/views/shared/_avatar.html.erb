@@ -1,0 +1,2 @@
+<% image = user.photo.blank? ? "admin_avatar.png" : user.photo %>
+<%= image_tag image, class: "main-avatar", title: user.first_name %>
