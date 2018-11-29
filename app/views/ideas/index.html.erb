@@ -45,7 +45,6 @@
     <p><%= @ideas.count %> ideas correspond to your search</p>
     <div class="row">
       <% @ideas.each do |idea| %>
-
         <div class="col-xs-12 col-sm-4">
           <%= render 'shared/card-new', idea: idea  %>
         </div>

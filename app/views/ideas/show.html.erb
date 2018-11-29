@@ -33,13 +33,4 @@
       </div>
     </div>
   </div>
-  <div class="reviews white-box">
-    <h3>Previous reviews</h3>
-    <ul class="list-unstyled">
-      <% @idea.reviews.each do |r| %>
-        <li>  <%= '*' * r.rating %> | <i><%= r.comment %></i> </li>
-        <hr>
-      <% end %>
-    </ul>
-  </div>
 </div>

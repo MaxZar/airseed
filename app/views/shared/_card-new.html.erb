@@ -15,16 +15,30 @@
     <div class="card__img"
     style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
         url('<%= cl_image_path my_background, height: 300, width: 400, crop: :fill %>')"></div>
-    <a href="#" class="card_link">
       <div class="card__img--hover"
       style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
           url('<%= cl_image_path my_background, height: 300, width: 400, crop: :fill %>')"
       ></div>
     </a>
     <div class="card__info">
-      <span class="card__category"> <%= idea.category  %></span>
-      <h3 class="card__title"><%= idea.title  %></h3>
-      <span class="card__by">by <a href="#" class="card__author" title="author"><%= idea.user.first_name  %></a></span>
+      <% category = idea.category.length > 12 ? "#{idea.category[0..12]}..." : idea.category%>
+      <% title = idea.title.length > 15 ? "#{idea.title[0..15]}..." : idea.title%>
+      <span class="card__category"> <%= category  %></span>
+      <h3 class="card__title"><%= title  %></h3>
+      <div class="card-footer">
+        <div class="author">
+        <span class="card__by">by <a href="#" class="card__author" title="author"><%= idea.user.first_name  %></a></span>
+        </div>
+        <div class="booking-status">
+          <% if idea.bookings.where(validated: true).count > 0 %>
+            <span class="card__by">booked</span>
+            <span class="card__by"><i class="fas fa-circle" style="color: red"></i></span>
+          <% else %>
+            <span class="card__by">available</span>
+            <span class="card__by"><i class="fas fa-circle" style="color: green"></i></span>
+          <% end %>
+        </div>
+      </div>
     </div>
   </article>
 <% end %>
