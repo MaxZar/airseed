@@ -18,6 +18,7 @@ gem 'font-awesome-sass', '~> 5.0.9'
 gem 'sassc-rails'
 gem 'uglifier'
 gem 'webpacker'
+gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.1.1'
 
 gem 'devise'
 gem 'simple_form'

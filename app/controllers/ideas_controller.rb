@@ -13,6 +13,10 @@ class IdeasController < ApplicationController
   def create
     @idea = Idea.new(idea_params)
     @idea.user = current_user
+<<<<<<< HEAD
+
+=======
+>>>>>>> 6b2d94a61b2c6971dae1fbe6de92ec95aedb6468
     if @idea.save
       redirect_to idea_path(@idea)
     else
@@ -73,9 +77,10 @@ class IdeasController < ApplicationController
       :pricing,
       :start_date,
       :end_date,
-      :minimum_application_duration,
+      :minimum_duration,
       :application_criteria,
-      :photo
+      :photo,
+      :photo_cache
       )
   end
 end
