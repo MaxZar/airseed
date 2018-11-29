@@ -1,24 +1,74 @@
 <div class="container">
+  <h2><%= @idea.title %></h2>
+  <div class="flexline">
+    <div class="main white-box">
+      <%= cl_image_tag @idea.photo, height: 180, width: 180, crop: :fill %>
+      <p><%= @idea.category %></p>
+      <a class="navbar-wagon-item navbar-wagon-link" href="#"><%= @idea.user.first_name %> <%= @idea.user.last_name %></a>
+      <br>
+      <br>
+      <br>
+      <%= link_to "Book", new_idea_booking_path(@idea), class: "btn btn-primary btn-lg" %>
+    </div>
+    <div class="stats-and-description">
+      <div class="stats-flexline">
+        <div class="stat white-box">
+          <p>Price per day</p>
+          <p><%= @idea.pricing %> €</p>
+        </div>
+        <div class="stat white-box">
+          <p>Min. duration</p>
+          <p><%= @idea.minimum_duration %> days</p>
+        </div>
+        <div class="stat white-box">
+          <p> MAP </p>
+        </div>
+      </div>
+      <div class="description white-box">
+        <h3>More about the idea</h3>
+        <p> <%= @idea.description %> </p>
+        <h3>Application Criteria</h3>
+        <p><%= @idea.application_criteria %></p>
+      </div>
+    </div>
+  </div>
+  <div class="reviews white-box">
+    <h3>Previous reviews</h3>
+    <ul class="list-unstyled">
+      <% @idea.reviews.each do |r| %>
+        <li>  <%= '*' * r.rating %> | <i><%= r.comment %></i> </li>
+        <hr>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+
+
+
+<!--
+
+
+
+<div class="container">
   <div class="idea text-center">
     <div class="main">
       <div class="main-content">
-        <%= cl_image_tag @idea.photo, height: 180, width: 180, crop: :fill %>
-        <h2><%= @idea.title %></h2>
-        <p><%= @idea.category %></p>
-        <p><%= @idea.user.first_name %> <%= @idea.user.last_name %></p>
-        <%= link_to "Book", new_idea_booking_path(@idea), class: "btn btn-primary btn-lg" %>
+
+
+
+
+
       </div>
     </div>
     <div class="stat">
       <div class="stat-content">
-        <p>Price per day</p>
-        <p><%= @idea.pricing %> €</p>
+
       </div>
     </div>
     <div class="stat">
       <div class="stat-content">
-        <p>Min. duration</p>
-        <p><%= @idea.minimum_duration %> days</p>
+
       </div>
       </div>
     <div class="stat">
@@ -28,6 +78,7 @@
       </div>
     <div class="description">
       <div class="description-content text-left">
+
         <h3>More about the idea</h3>
         <p class="text-left">
           <%= @idea.description %>exitgst
@@ -38,58 +89,9 @@
       </div>
     </div>
     <div class="reviews">
-      <h3>Previous reviews</h3>
-      <ul class="list-unstyled">
-        <% @idea.reviews.each do |r| %>
-          <li> <%= '*' * r.rating %> | <%= r.comment %> </li>
-        <% end %>
-      </ul>
+
     </div>
   </div>
 </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
-
-<!--
-
-<div class="container">
-  <div class="row">
-    <div class="Header">
-    <h2><%= @idea.title %></h2>
-    <%= link_to "Book", new_idea_booking_path(@idea), class: "btn-medium" %>
-    </div>
-
-    <div class="Main-information">
-    <p></p>
-
-    <p><%= @idea.description %></p>
-    <p><%= @idea.category %></p>
-    </div>
-    <h3>Revenue Model and pricing</h3>
-    <p><%= @idea.revenue_model %></p>
-    <p><%= @idea.pricing %> € per day</p>
-    <div>
-    <p> this idea is available from <%= @idea.start_date %> to <%= @idea.end_date %></p>
-    </div>
-    <p> <%= @idea.minimum_duration %> day</p>
-    <h3>Application Criteria</h3>
-    <p><%= @idea.application_criteria %></p>
-    <h3>Creator information</h3>
-    <p><%= @idea.user.first_name %> <%= @idea.user.last_name %></p>
-
-
-    <h3>Previous reviews</h3>
-    <ul>
-      <% @idea.reviews.each do |r| %>
-        <li> <%= '*' * r.rating %> | <%= r.comment %> </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
-
- -->
