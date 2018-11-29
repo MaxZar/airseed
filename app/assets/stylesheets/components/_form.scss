@@ -1,0 +1,49 @@
+.form-input-inline {
+  display: flex;
+}
+
+
+.form-horizontal .form-group {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.form-component {
+  margin-right: 10px;
+}
+
+.btn-form {
+  width: 100% !important;
+}
+
+.form-inputs label {
+  font-family: $subtitle-font-family;
+  font-weight: lighter;
+  color: $gray;
+}
+
+.main-form {
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 40px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 70%;
+  margin-top: 35px;
+  flex-direction: column;
+}
+
+.main-form .btn {
+  border-radius: 0;
+  border: none;
+  width: 70%;
+  margin-top: 30px;
+  background: #37B686;
+}
+
+.main-form .btn:hover {
+  background: #37B686;
+  opacity: 0.7;
+}
