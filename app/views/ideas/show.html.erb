@@ -1,10 +1,11 @@
 <div class="container">
-  <h2><%= @idea.title %></h2>
+
   <div class="flexline">
     <div class="main white-box">
+      <h3><%= @idea.title %></h3>
       <%= cl_image_tag @idea.photo, height: 180, width: 180, crop: :fill %>
       <p><%= @idea.category %></p>
-      <a class="navbar-wagon-item navbar-wagon-link" href="#"><%= @idea.user.first_name %> <%= @idea.user.last_name %></a>
+      <a class="navbar-wagon-item navbar-wagon-link" href="https://www.linkedin.com/in/elon-musk-899732174/" target="_blank"><%= @idea.user.first_name %> <%= @idea.user.last_name %></a>
       <br>
       <br>
       <br>
@@ -13,11 +14,11 @@
     <div class="stats-and-description">
       <div class="stats-flexline">
         <div class="stat white-box">
-          <p>Price per day</p>
+          <h3>Price per day</h3>
           <p><%= @idea.pricing %> €</p>
         </div>
         <div class="stat white-box">
-          <p>Min. duration</p>
+          <h3>Min. duration</h3>
           <p><%= @idea.minimum_duration %> days</p>
         </div>
         <div class="stat white-box">
