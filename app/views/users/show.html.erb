@@ -1,71 +1,52 @@
 <div class="container">
   <div class="row">
-    <div class="section-title">
-      <h3>Ideas</h3>
-    </div>
+    <div class="section-title"><h3>Ideas</h3></div>
     <% @ideas.each do |idea| %>
-    <% my_background = idea.photo.blank? ? "default.png" : idea.photo %>
     <div class="col-xs-12 col-sm-4 ideas">
-
-      <%= link_to idea_path(idea) do %>
-        <div class="card"
-             style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                 url('<%= cl_image_path my_background, height: 300, width: 400, crop: :fill %>')">
-          <div class="card-category"><%= idea.title %></div>
-            <div class="card-description">
-              <p><%= idea.category %></p>
-            </div>
-        </div>
-      <% end %>
+      <%= render 'shared/card', idea: idea  %>
     </div>
   <% end %>
 
   <div class="row">
-      <div class="col-xs-12 col-sm-4 requests">
-      <h3>Requests</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Idea</th>
-            <th>Booking status</th>
-          </tr>
-        </thead>
-        <tbody>
-            <% @ideas.each do |idea|%>
-              <tr>
-                <td>
-                  <p><%= idea.title %></p>
-                  </td>
-                <% if idea.bookings.count == 0 %>
-                  <td><p>No one cares about your idea</p></td>
-                <% else %>
-                  <% booking = idea.bookings.first %>
-                  <% renter = booking.user %>
-                  <% if booking.validated.nil? %>
-                    <td><p><%= renter.first_name  %> would like to rent your idea</p></td>
-                    <td>
-                      <%= link_to "Validate", accept_booking_path(booking), method: :patch, class: "btn btn-xs btn-success"  %>
-                    </td>
-                    <td>
-                      <%= link_to "Decline", decline_booking_path(booking), method: :patch, class: "btn btn-xs btn-danger"  %>
-                    </td>
-                  <% elsif booking.validated %>
-                    <td><p><%= renter.first_name  %> has rented your idea</p></td>
-                  <% else  %>
-                    <td><p>You've declined <%= renter.first_name  %>'s request<p></td>
-                  <% end %>
-                <% end %>
-              </tr>
-              <% end %>
-        </tbody>
-      </table>
+      <% bookings =  @bookings.where(validated: nil).where.not(id: nil) %>
+      <div class="section-title">
+        <h3>Booking requests <%= bookings.count %></h3>
+      </div>
+      <div class="col-xs-12 requests">
+        <% booking = bookings.first %>
+        <% days =  (booking.end_date - booking.start_date).to_i %>
 
-    </div>
+        <% message = "#{booking.user.first_name} wants to book #{booking.idea.title}" %>
+        <div class="request">
+          <%= render 'shared/avatar', user: booking.user  %>
+          <div class="request-header">
+            <p><%= message  %></p>
+            <div class="request-details">
+              <p><%= "#{booking.start_date} - #{booking.end_date}" %></p>
+              <p><strong>
+                $<%= booking.idea.pricing * days %>
+              </strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="request-text">
+          <p>
+            <%= booking.request_message  %>
+          </p>
+        </div>
+        <div class="request-buttons">
+          <div class="buttons">
+            <%= link_to "Validate", accept_booking_path(booking), method: :patch, class: "btn btn-xs btn-success"  %>
+            <%= link_to "Decline", decline_booking_path(booking), method: :patch, class: "btn btn-xs btn-danger"  %>
+          </div>
+        </div>
+      </div>
   </div>
 
+
   <div class="row">
+    <div class="section-title"><h3>Bookings</h3></div>
     <div class="col-xs-12 col-sm-4 bookings">
-      <h3>Bookings</h3>
       <% @bookings.each do |booking|%>
         <p>
           <%= booking.idea.title %>
