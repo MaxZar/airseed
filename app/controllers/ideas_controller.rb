@@ -37,15 +37,53 @@ class IdeasController < ApplicationController
   end
 
   def index
-    @ideas = policy_scope(Idea).order(created_at: :desc)
+    @cat = [
+      'Arts, crafts, and collectibles',
+      'Beauty and fragrances',
+      'Books and magazines',
+      'Education',
+      'Electronics and telecom',
+      'Entertainment and media',
+      'Food retail and service',
+      'Gifts and flowers',
+      'Government',
+      'Health and personal care',
+      'Home and garden',
+      'Pets and animals',
+      'Services - other',
+      'Sports and outdoors',
+      'Travel',
+      ]
 
-    @ideas_map = Idea.where.not(latitude: nil, longitude: nil)
-    @markers = @ideas_map.map do |idea|
+    if params[:query].present?
+      @ideas_pre = Idea.search_by_title_and_category_and_description(params[:query])
+    else
+      @ideas_pre = Idea.all
+    end
+
+    @ideas = []
+
+    @ideas_pre.each do |idea|
+      c1 = params[:category].present? && idea.category ? idea.category == params[:category] : true
+      c2 = params[:max_price].present? && idea.pricing ? idea.pricing < params[:max_price].to_i : true
+      c3 = true
+      idea.bookings.to_a.each do |b|
+        if params[:start_date].present? && params[:end_date].present?
+          c3 = false if b.start_date < Date.parse(params[:end_date]) && b.end_date > Date.parse(params[:start_date])
+        end
+      end
+      @ideas << idea if c1 && c2 && c3
+    end
+
+    @markers = @ideas.map do |idea|
       {
         lng: idea.longitude,
         lat: idea.latitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { idea: idea })
       }
+    end
+    @markers = @markers.select do |e|
+      e[:lng] || e[:lat]
     end
   end
 

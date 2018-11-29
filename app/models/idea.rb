@@ -11,4 +11,13 @@ class Idea < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  include PgSearch
+  pg_search_scope :search_by_title_and_category_and_description,
+                  against: [:title, :category, :description],
+                  using: {
+                    tsearch: {
+                      prefix: true
+                    }
+                  }
 end
