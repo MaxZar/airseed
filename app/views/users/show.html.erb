@@ -1,57 +1,66 @@
+<div class="container">
+  <div class="row">
+    <div class="section-title"><h3>Ideas</h3></div>
+    <% @ideas.each do |idea| %>
+    <div class="col-xs-12 col-sm-4 ideas">
+      <%= render 'shared/card', idea: idea  %>
+    </div>
+  <% end %>
 
-<h3>My profile</h3>
-<% my_profile = @user.photo.blank? ? "admin_avatar.png" : idea.photo %>
+  <div class="row">
 
-<div class="card"
-              style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                  url('<%= cl_image_path my_profile, height: 300, width: 400, crop: :fill %>')"
-         ></div>
+      <div class="section-title">
+        <h3>Booking requests</h3>
+      </div>
+      <% count =  @bookings.where(validated: nil).count %>
+      <div class="requests-container">
+        <div class="request-tabs">
+          <ul class="nav nav-tabs">
+            <li class="nav-button active"><a data-toggle="tab" href="#home" class="nav-button"><%= "Pending (#{count})"  %></a></li>
+            <li><a data-toggle="tab" href="#menu1" class="nav-button">All</a></li>
+            <li><a data-toggle="tab" href="#menu2" class="nav-button">Accepted</a></li>
+            <li><a data-toggle="tab" href="#menu3" class="nav-button">Declined</a></li>
+          </ul>
+        </div>
+        <div class="tab-content">
+          <div id="home" class="tab-pane fade in active">
+            <% bookings =  @bookings.where(validated: nil) %>
+            <%= render "bookings", bookings: bookings  %>
+          </div>
+          <div id="menu1" class="tab-pane fade">
+            <% bookings =  @bookings.order(:created_at, :id) %>
+            <%= render "bookings", bookings: bookings  %>
+          </div>
+          <div id="menu2" class="tab-pane fade">
+            <% bookings =  @bookings.where(validated: true).order(:created_at, :id) %>
+            <%= render "bookings", bookings: bookings  %>
+          </div>
+          <div id="menu3" class="tab-pane fade">
+            <% bookings =  @bookings.where(validated: false).order(:created_at, :id) %>
+            <%= render "bookings", bookings: bookings  %>
+          </div>
+        </div>
+      </div>
 
-<p> <%= @user.first_name %> - <%= @user.last_name %> </p>
-<p> <%= @user.email %></p>
-<p> <%= @user.description %></p>
+  </div>
 
-<h3>My ideas</h3>
-<table>
-  <thead>
-    <tr>
-      <th>Idea</th>
-      <th>Booking status</th>
-    </tr>
-  </thead>
-  <tbody>
-      <% @ideas.each do |idea|%>
-        <tr>
-          <td><%= idea.title %></td>
-          <% if idea.bookings.count == 0 %>
-            <td><p>No one cares about your idea</p></td>
-          <% else %>
-            <% booking = idea.bookings.first %>
-            <% renter = booking.user %>
-            <% if booking.validated.nil? %>
-              <td><p><%= renter.first_name  %> would like to rent your idea</p></td>
-              <td>
-                <%= link_to "Validate", accept_booking_path(booking), method: :patch, class: "btn btn-xs btn-success"  %>
-              </td>
-              <td>
-                <%= link_to "Decline", decline_booking_path(booking), method: :patch, class: "btn btn-xs btn-danger"  %>
-              </td>
-            <% elsif booking.validated %>
-              <td><p><%= renter.first_name  %> has rented your idea</p></td>
-            <% else  %>
-              <td><p>You've declineded <%= renter.first_name  %>'s request<p></td>
-            <% end %>
-          <% end %>
-        </tr>
-        <% end %>
-  </tbody>
-</table>
 
-<br>
+  <div class="row">
+    <div class="section-title"><h3>Bookings</h3></div>
+    <div class="col-xs-12 col-sm-4 bookings">
+      <% @bookings.each do |booking|%>
+        <p>
+          <%= booking.idea.title %>
+        </p>
+      <% end %>
 
-<h3>My bookings</h3>
-<% @bookings.each do |booking|%>
-  <p>
-    <%= booking.idea.title %>
-  </p>
-<% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
