@@ -13,3 +13,28 @@
 @import "layouts/index";
 @import "components/index";
 @import "pages/index";
+
+
+h1 {
+  font-weight: $title-font-weight;
+  font-size: $title-font-size;
+  font-family: $title-font-family;
+  color: $main-color;
+};
+
+h3 {
+  font-weight: $subtitle-font-weight;
+  font-size: $subtitle-font-size;
+  font-family: $subtitle-font-family;
+  color: $secondary-color;
+};
+
+p {
+  font-weight: $text-font-weight;
+  font-size: $text-font-size;
+  font-family: $text-font-family;
+  color: $text-color;
+};
+
+
+

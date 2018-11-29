@@ -11,7 +11,6 @@ class IdeasController < ApplicationController
   end
 
   def create
-    record.user == user
     @idea = Idea.new(idea_params)
     if @idea.save
       redirect_to idea_path(@idea)
@@ -38,6 +37,15 @@ class IdeasController < ApplicationController
 
   def index
     @ideas = policy_scope(Idea).order(created_at: :desc)
+
+    @ideas_map = Idea.where.not(latitude: nil, longitude: nil)
+    @markers = @ideas_map.map do |idea|
+      {
+        lng: idea.longitude,
+        lat: idea.latitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { idea: idea })
+      }
+    end
   end
 
   def destroy
