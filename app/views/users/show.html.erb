@@ -10,34 +10,55 @@
   <div class="row">
       <% bookings =  @bookings.where(validated: nil).where.not(id: nil) %>
       <div class="section-title">
-        <h3>Booking requests <%= bookings.count %></h3>
+        <h3>Booking requests<%= " (#{bookings.count})" if bookings.count > 0 %></h3>
       </div>
       <div class="col-xs-12 requests">
         <% booking = bookings.first %>
         <% days =  (booking.end_date - booking.start_date).to_i %>
-
-        <% message = "#{booking.user.first_name} wants to book #{booking.idea.title}" %>
+        <% if booking.validated %>
+          <% css_style = "accepted" %>
+          <% message = "You've accepted " %>
+        <% elsif booking.validated == false %>
+          <% css_style = "declined" %>
+          <% message = "You've declined " %>
+        <% else %>
+          <% css_style = "neutral" %>
+          <% message = " wants to book " %>
+        <% end %>
         <div class="request">
-          <%= render 'shared/avatar', user: booking.user  %>
-          <div class="request-header">
-            <p><%= message  %></p>
-            <div class="request-details">
-              <p><%= "#{booking.start_date} - #{booking.end_date}" %></p>
-              <p><strong>
-                $<%= booking.idea.pricing * days %>
-              </strong></p>
+          <div class="request-title">
+            <%= render 'shared/avatar', user: booking.user  %>
+            <div class="request-header">
+              <div class="request-header-text">
+                <% if booking.validated == nil %>
+                  <p><strong><%= booking.user.first_name  %></strong></p>
+                  <p><%= message %></p>
+                  <p class="neutral"> <%= booking.idea.title %></p>
+                <% else %>
+                  <p class=css_style><%= message %></p>
+                  <p><strong><%= booking.user.first_name  %></strong></p>
+                  <p class=css_style>'s request for <%= booking.idea.title %></p>
+
+                <% end %>
+              </div>
+              <div class="request-details">
+                <p><%= "#{booking.start_date} - #{booking.end_date}" %></p>
+                <p><strong>
+                  $<%= booking.idea.pricing * days %>
+                </strong></p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="request-text">
-          <p>
-            <%= booking.request_message  %>
-          </p>
-        </div>
-        <div class="request-buttons">
-          <div class="buttons">
-            <%= link_to "Validate", accept_booking_path(booking), method: :patch, class: "btn btn-xs btn-success"  %>
-            <%= link_to "Decline", decline_booking_path(booking), method: :patch, class: "btn btn-xs btn-danger"  %>
+          <div class="request-text">
+            <p>
+              <%= booking.request_message  %>
+            </p>
+          </div>
+          <div class="request-buttons">
+            <div class="buttons">
+              <%= link_to "Validate", accept_booking_path(booking), method: :patch, class: "btn btn-xl btn-success"  %>
+              <%= link_to "Decline", decline_booking_path(booking), method: :patch, class: "btn btn-xl btn-danger"  %>
+            </div>
           </div>
         </div>
       </div>

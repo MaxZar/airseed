@@ -1,18 +1,22 @@
 
 td {
   margin-right: 10px;
-}
+};
 
 .profile-picture {
   width: 30%
-}
+};
 
 .requests {
   padding: 5px 10px 5px 10px;
   width: 100%;
-}
-
+};
 .request {
+  border-bottom: 1px solid $secondary-color;
+  padding-bottom: 10px;
+};
+
+.request-title {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -23,9 +27,15 @@ td {
   };
   img {
     margin-right: 5px;
-  }
+  };
 
-}
+};
+
+.request-text {
+  p {
+    font-size: 14px;
+  };
+};
 
 
 .section-title {
@@ -35,7 +45,13 @@ td {
   display: flex;
   justify-content: space-between;
   width: 100%;
-}
+};
+.request-header-text {
+  display: flex;
+  p {
+    margin-right: 3px;
+  };
+};
 
 .request-details {
   display: flex;
@@ -43,16 +59,31 @@ td {
   p {
     padding: 0px 5px 0px 5px;
   };
-}
+};
 
 .request-buttons {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+};
 
 .buttons {
   display: flex;
   justify-content: space-between;
-  width: 15%;
-}
+  width: 20%;
+};
+
+.neutral {
+  color: $secondary-color;
+};
+
+.accepted {
+  color: green;
+  font-weight: 400px;
+};
+
+.declined {
+  color: red;
+  font-weight: 400px;
+};
+
