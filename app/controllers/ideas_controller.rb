@@ -11,8 +11,8 @@ class IdeasController < ApplicationController
   end
 
   def create
-    record.user == user
     @idea = Idea.new(idea_params)
+    @idea.user = current_user
     if @idea.save
       redirect_to idea_path(@idea)
     else
@@ -27,9 +27,9 @@ class IdeasController < ApplicationController
   def update
     authorize @idea
     if @idea.update(idea_params)
-     redirect_to idea_path(@idea)
+      redirect_to idea_path(@idea)
     else
-     render :edit
+      render :edit
     end
   end
 
@@ -38,6 +38,15 @@ class IdeasController < ApplicationController
 
   def index
     @ideas = policy_scope(Idea).order(created_at: :desc)
+
+    @ideas_map = Idea.where.not(latitude: nil, longitude: nil)
+    @markers = @ideas_map.map do |idea|
+      {
+        lng: idea.longitude,
+        lat: idea.latitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { idea: idea })
+      }
+    end
   end
 
   def destroy

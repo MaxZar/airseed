@@ -6,27 +6,35 @@
 </div>
 
 
-<div class="container">
-  <div class="row">
-    <% @ideas.each do |idea| %>
+<div class="main-container">
+  <div class="container">
+    <div class="row">
+      <% @ideas.each do |idea| %>
 
-      <% my_background = idea.photo.blank? ? "default.png" : idea.photo %>
-      <div class="col-xs-12 col-sm-4">
+        <% my_background = idea.photo.blank? ? "default.png" : idea.photo %>
+        <div class="col-xs-12 col-sm-4">
 
-        <%= link_to idea_path(idea) do %>
-          <div class="card"
-               style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                   url('<%= cl_image_path my_background, height: 300, width: 400, crop: :fill %>')"
-          >
-            <div class="card-category"><%= idea.title %></div>
-              <div class="card-description">
-                <p><%= idea.category %></p>
+          <%= link_to idea_path(idea) do %>
+            <div class="card"
+                 style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                     url('<%= cl_image_path my_background, height: 300, width: 400, crop: :fill %>')"
+            >
+              <div class="card-category"><%= idea.title %></div>
+                <div class="card-description">
+                  <p><%= idea.category %></p>
+                </div>
               </div>
-            </div>
-        <% end %>
-      </div>
-    <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
+
+  <div
+    id="map"
+    style="width: 100%;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
+
 </div>
-
-

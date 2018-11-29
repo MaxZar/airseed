@@ -11,18 +11,41 @@
 <p> <%= @user.email %></p>
 <p> <%= @user.description %></p>
 
-
 <h3>My ideas</h3>
-<% @ideas.each do |idea|%>
-  <% if idea.bookings.where(validated: true).count == 0 %>
-    <% booking_status = "validation pending"  %>
-  <% else %>
-    <% booking_status = "validated" %>
-  <% end %>
-  <p>
-    <%= idea.title %> - <%= booking_status  %>
-  </p>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Idea</th>
+      <th>Booking status</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @ideas.each do |idea|%>
+        <tr>
+          <td><%= idea.title %></td>
+          <% if idea.bookings.count == 0 %>
+            <td><p>No one cares about your idea</p></td>
+          <% else %>
+            <% booking = idea.bookings.first %>
+            <% renter = booking.user %>
+            <% if booking.validated.nil? %>
+              <td><p><%= renter.first_name  %> would like to rent your idea</p></td>
+              <td>
+                <%= link_to "Validate", accept_booking_path(booking), method: :patch, class: "btn btn-xs btn-success"  %>
+              </td>
+              <td>
+                <%= link_to "Decline", decline_booking_path(booking), method: :patch, class: "btn btn-xs btn-danger"  %>
+              </td>
+            <% elsif booking.validated %>
+              <td><p><%= renter.first_name  %> has rented your idea</p></td>
+            <% else  %>
+              <td><p>You've declineded <%= renter.first_name  %>'s request<p></td>
+            <% end %>
+          <% end %>
+        </tr>
+        <% end %>
+  </tbody>
+</table>
 
 <br>
 
