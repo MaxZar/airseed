@@ -7,9 +7,20 @@ td {
   width: 30%
 };
 
+.requests-container {
+  justify-content: center;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 100%;
+
+};
+
+
 .requests {
+  margin-left: 30px;
   padding: 5px 10px 5px 10px;
-  width: 100%;
+  width: 80%;
+  justify-content: center;
 };
 .request {
   border-bottom: 1px solid $secondary-color;
@@ -40,6 +51,7 @@ td {
 
 .section-title {
   border-bottom: 2px solid $main-color;
+  margin-bottom: 10px;
 }
 .request-header {
   display: flex;
@@ -79,11 +91,25 @@ td {
 
 .accepted {
   color: green;
-  font-weight: 400px;
+  font-weight: 600px;
 };
 
 .declined {
   color: red;
-  font-weight: 400px;
+  font-weight: 600px;
 };
+
+
+.tab-content {
+  display: flex;
+  justify-content: center;
+};
+
+.nav-button {
+  color: $main-color;
+};
+
+.nav-button:hover {
+  color: $secondary-color;
+}
 

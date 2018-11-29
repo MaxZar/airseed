@@ -8,60 +8,40 @@
   <% end %>
 
   <div class="row">
-      <% bookings =  @bookings.where(validated: nil).where.not(id: nil) %>
-      <div class="section-title">
-        <h3>Booking requests<%= " (#{bookings.count})" if bookings.count > 0 %></h3>
-      </div>
-      <div class="col-xs-12 requests">
-        <% booking = bookings.first %>
-        <% days =  (booking.end_date - booking.start_date).to_i %>
-        <% if booking.validated %>
-          <% css_style = "accepted" %>
-          <% message = "You've accepted " %>
-        <% elsif booking.validated == false %>
-          <% css_style = "declined" %>
-          <% message = "You've declined " %>
-        <% else %>
-          <% css_style = "neutral" %>
-          <% message = " wants to book " %>
-        <% end %>
-        <div class="request">
-          <div class="request-title">
-            <%= render 'shared/avatar', user: booking.user  %>
-            <div class="request-header">
-              <div class="request-header-text">
-                <% if booking.validated == nil %>
-                  <p><strong><%= booking.user.first_name  %></strong></p>
-                  <p><%= message %></p>
-                  <p class="neutral"> <%= booking.idea.title %></p>
-                <% else %>
-                  <p class=css_style><%= message %></p>
-                  <p><strong><%= booking.user.first_name  %></strong></p>
-                  <p class=css_style>'s request for <%= booking.idea.title %></p>
 
-                <% end %>
-              </div>
-              <div class="request-details">
-                <p><%= "#{booking.start_date} - #{booking.end_date}" %></p>
-                <p><strong>
-                  $<%= booking.idea.pricing * days %>
-                </strong></p>
-              </div>
-            </div>
+      <div class="section-title">
+        <h3>Booking requests</h3>
+      </div>
+      <% count =  @bookings.where(validated: nil).count %>
+      <div class="requests-container">
+        <div class="request-tabs">
+          <ul class="nav nav-tabs">
+            <li class="nav-button active"><a data-toggle="tab" href="#home" class="nav-button"><%= "Pending (#{count})"  %></a></li>
+            <li><a data-toggle="tab" href="#menu1" class="nav-button">All</a></li>
+            <li><a data-toggle="tab" href="#menu2" class="nav-button">Accepted</a></li>
+            <li><a data-toggle="tab" href="#menu3" class="nav-button">Declined</a></li>
+          </ul>
+        </div>
+        <div class="tab-content">
+          <div id="home" class="tab-pane fade in active">
+            <% bookings =  @bookings.where(validated: nil) %>
+            <%= render "bookings", bookings: bookings  %>
           </div>
-          <div class="request-text">
-            <p>
-              <%= booking.request_message  %>
-            </p>
+          <div id="menu1" class="tab-pane fade">
+            <% bookings =  @bookings.order(:created_at, :id) %>
+            <%= render "bookings", bookings: bookings  %>
           </div>
-          <div class="request-buttons">
-            <div class="buttons">
-              <%= link_to "Validate", accept_booking_path(booking), method: :patch, class: "btn btn-xl btn-success"  %>
-              <%= link_to "Decline", decline_booking_path(booking), method: :patch, class: "btn btn-xl btn-danger"  %>
-            </div>
+          <div id="menu2" class="tab-pane fade">
+            <% bookings =  @bookings.where(validated: true).order(:created_at, :id) %>
+            <%= render "bookings", bookings: bookings  %>
+          </div>
+          <div id="menu3" class="tab-pane fade">
+            <% bookings =  @bookings.where(validated: false).order(:created_at, :id) %>
+            <%= render "bookings", bookings: bookings  %>
           </div>
         </div>
       </div>
+
   </div>
 
 
