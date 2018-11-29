@@ -1,5 +1,5 @@
 .card {
-  height: 175px;
+  height: 250px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
@@ -27,14 +27,14 @@
   left: 10px;
 }
 .card-description h2 {
-  font-size: 24px;
+  font-size: 16px;
 }
-.card-description p {
-  color: white;
-  font-size: 14px;
-  opacity: 0.7;
-  font-weight: lighter;
-}
+// .card-description p {
+//   color: white;
+//   font-size: 14px;
+//   opacity: 0.7;
+//   font-weight: lighter;
+// }
 .card-link {
   position: absolute;
   top: 0;

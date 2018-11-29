@@ -49,20 +49,8 @@
     <div class="row">
       <% @ideas.each do |idea| %>
 
-        <% my_background = idea.photo.blank? ? "default.png" : idea.photo %>
         <div class="col-xs-12 col-sm-4">
-
-          <%= link_to idea_path(idea) do %>
-            <div class="card"
-                 style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                     url('<%= cl_image_path my_background, height: 300, width: 400, crop: :fill %>')"
-            >
-              <div class="card-category"><%= idea.title %></div>
-                <div class="card-description">
-                  <p><%= idea.category %></p>
-                </div>
-              </div>
-          <% end %>
+          <%= render 'shared/card-new', idea: idea  %>
         </div>
       <% end %>
     </div>

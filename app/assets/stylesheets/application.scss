@@ -14,6 +14,9 @@
 @import "components/index";
 @import "pages/index";
 
+.container {
+ min-height: 80vh;
+}
 
 h1 {
   font-weight: $title-font-weight;
@@ -26,7 +29,7 @@ h3 {
   font-weight: $subtitle-font-weight;
   font-size: $subtitle-font-size;
   font-family: $subtitle-font-family;
-  color: $secondary-color;
+  color: $main-color;
 };
 
 p {

@@ -1,0 +1,49 @@
+  <div class="col-xs-12 requests">
+    <% bookings.each do |booking| %>
+      <% request_date = ((Time.now - booking.created_at) / 1.day).round %>
+      <% days =  (booking.end_date - booking.start_date).to_i %>
+      <div class="request">
+        <div class="request-title">
+          <%= render 'shared/avatar', user: booking.user  %>
+          <div class="request-header">
+            <div class="request-header-text">
+              <% if booking.validated == nil %>
+                <p><strong><%= booking.user.first_name  %></strong></p>
+                <p> wants to book </p>
+                <p class="neutral"> <%= booking.idea.title %></p>
+              <% elsif booking.validated %>
+                <p>You've </p>
+                <p class="accepted">accepted</p>
+                <p><strong><%= booking.user.first_name  %></strong></p>
+                <p>'s request for <%= booking.idea.title %></p>
+              <% else %>
+                <p>You've </p>
+                <p class="declined">declined</p>
+                <p><strong><%= booking.user.first_name  %></strong></p>
+                <p>'s request for <%= booking.idea.title %></p>
+              <% end %>
+            </div>
+            <div class="request-details">
+              <p><%= "#{booking.start_date} - #{booking.end_date}" %></p>
+              <p><strong>
+                $<%= booking.idea.pricing * days %>
+              </strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="request-text">
+          <p>
+            <%= booking.request_message  %>
+          </p>
+        </div>
+        <% if booking.validated == nil %>
+          <div class="request-buttons">
+            <div class="buttons">
+              <%= link_to "Validate", accept_booking_path(booking), method: :patch, class: "btn btn-xl btn-success"  %>
+              <%= link_to "Decline", decline_booking_path(booking), method: :patch, class: "btn btn-xl btn-danger"  %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
