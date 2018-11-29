@@ -8,6 +8,15 @@
   justify-content: space-around;
 }
 
+.main h3 {
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
+
+.main p {
+  margin-top: 15px;
+}
+
 .stat {
   padding: 30px !important;
   font-size: 10px !important;
@@ -15,6 +24,7 @@
 .main .btn {
   display: block;
   margin: 0 !important;
+  margin-bottom: 30px !important;
 }
 .stat {
   font-size: 0.8em;
@@ -49,6 +59,7 @@ h2 {
 .stat p {
   color: rgba(0,0,0,0.40);
   font-size: 19px;
+  margin-top: 20px;
 }
 
 .white-box {
@@ -62,6 +73,7 @@ $elements-margin: 15px;
 .flexline {
   display: flex;
   align-items: stretch;
+  margin-top: 35px;
   margin-bottom: $elements-margin;
   .main {
     flex: 0 0 30%;
