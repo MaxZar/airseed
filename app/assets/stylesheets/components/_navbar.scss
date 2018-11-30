@@ -80,3 +80,26 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+.navbar-title {
+
+  font-weight: $title-font-weight;
+  size: 18;
+  font-family: $title-font-family;
+  color: $main-color;
+  letter-spacing: 2px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
+  .active {
+    color: $secondary-color;
+    border-bottom: 3px solid $secondary-color;
+  }
+}
+
+.navbar-title:hover {
+  color: $secondary-color;
+  border-bottom: 3px solid $secondary-color;
+}
+

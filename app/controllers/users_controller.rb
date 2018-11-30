@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @ideas = Idea.where(user_id: @user.id)
+    @requests = Booking.joins(:idea).where(ideas: {user_id: @user.id} )
     @bookings = Booking.where(user_id: @user.id)
   end
 

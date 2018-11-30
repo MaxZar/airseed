@@ -1,12 +1,4 @@
 
-td {
-  margin-right: 10px;
-};
-
-.profile-picture {
-  width: 30%
-};
-
 .requests-container {
   justify-content: center;
   display: grid;
@@ -48,11 +40,6 @@ td {
   };
 };
 
-
-.section-title {
-  border-bottom: 2px solid $main-color;
-  margin-bottom: 10px;
-}
 .request-header {
   display: flex;
   justify-content: space-between;
@@ -78,6 +65,78 @@ td {
   align-items: center;
   justify-content: center;
 };
+
+.bookings-container {
+  justify-content: center;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 100%;
+
+};
+
+
+.bookings {
+  margin-left: 30px;
+  padding: 5px 10px 5px 10px;
+  width: 90%;
+  justify-content: center;
+};
+.booking {
+  border-bottom: 1px solid $secondary-color;
+  padding-bottom: 10px;
+};
+
+.booking-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 50px;
+  margin: 0px 0px 0px 0px;
+  p {
+    margin: 0px;
+  };
+  img {
+    margin-right: 5px;
+  };
+
+};
+
+.booking-text {
+  p {
+    font-size: 14px;
+  };
+};
+
+.booking-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+};
+.booking-header-text {
+  display: flex;
+  p {
+    margin-right: 3px;
+  };
+};
+
+.booking-details {
+  display: flex;
+  justify-content: space-between;
+  p {
+    padding: 0px 5px 0px 5px;
+  };
+};
+
+.booking-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+};
+
+.section-title {
+  border-bottom: 2px solid $main-color;
+  margin-bottom: 10px;
+}
 
 .buttons {
   display: flex;
@@ -113,3 +172,16 @@ td {
   color: $secondary-color;
 }
 
+.small-title {
+  color: $main-color;
+}
+
+.review-link {
+  text-decoration: none;
+  color: $main-color;
+  padding-left: 5px;
+}
+.review-link:hover {
+  text-decoration: none;
+  color: $main-color;
+}
