@@ -8,9 +8,9 @@ import { initUpdateNavbarOnScroll } from '../components/navbar';
 initUpdateNavbarOnScroll();
 
 import { loadDynamicBannerText } from '../components/banner';
-loadDynamicBannerText();
-
-
+if (document.getElementById('banner-typed-text')) {
+  loadDynamicBannerText();
+}
 
 import { initMapbox } from '../plugins/init_mapbox';
 initMapbox();
