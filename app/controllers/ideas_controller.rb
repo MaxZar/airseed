@@ -35,6 +35,14 @@ class IdeasController < ApplicationController
   end
 
   def show
+    @marker =
+      [{
+        lng: 80,
+        lat: 40,
+      }]
+    # @marker = @marker.select do |e|
+    #   e[:lng] || e[:lat]
+    # end
   end
 
   def index
