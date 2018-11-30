@@ -6,8 +6,8 @@
         <div class="request-tabs">
           <ul class="nav nav-tabs">
             <% count =  @bookings.where(validated: true).count %>
-            <li class="nav-button active"><a data-toggle="tab" href="#current" class="nav-button"><%= "Active (#{count})"  %></a></li>
-            <li><a data-toggle="tab" href="#menu4" class="nav-button">Pending</a></li>
+            <li class="nav-button active"><a data-toggle="tab" href="#menu4" class="nav-button">Pending</a></li>
+            <li><a data-toggle="tab" href="#current" class="nav-button"><%= "Active (#{count})"  %></a></li>
           </ul>
         </div>
         <div class="tab-content">

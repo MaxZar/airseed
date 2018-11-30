@@ -39,6 +39,10 @@ p {
   color: $text-color;
 };
 
+#search-text {
+  margin-top: 5px;
+  color: $secondary-color;
+}
 
 .wrapper {
   background-color: $background-color;
