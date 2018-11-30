@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
     @booking.idea = @idea
     @booking.user = current_user
       if @booking.save
-        render :show
+        redirect_to users_show_path, anchor: "home"
       else
         render :new
     end
@@ -23,13 +23,13 @@ class BookingsController < ApplicationController
   def accept
     @booking.validated = true
     @booking.save
-    redirect_to users_show_path
+    redirect_to users_show_path, anchor: "home"
   end
 
   def decline
     @booking.validated = false
     @booking.save
-    redirect_to users_show_path
+    redirect_to users_show_path, anchor: "home"
   end
 
   def show

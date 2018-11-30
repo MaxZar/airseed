@@ -8,8 +8,10 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Links -->
-    <%= link_to "Add Idea", new_idea_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Search Ideas", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Home", ideas_path, class: "navbar-wagon-item navbar-wagon-link navbar-title" %>
+    <%= link_to "Dashboard", users_show_path, class: "navbar-wagon-item navbar-wagon-link navbar-title" %>
+    <%= link_to "I'm feeling creative", new_idea_path, class: "navbar-wagon-item navbar-wagon-link navbar-title" %>
+    <%= link_to "Search", ideas_path, class: "navbar-wagon-item navbar-wagon-link navbar-title" %>
     <% if user_signed_in? %>
       <div class="navbar-wagon-item">
         <div class="dropdown">
@@ -34,7 +36,7 @@
         </div>
       </div>
     <% else %>
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link navbar-title" %>
     <% end %>
     <!-- Avatar with dropdown menu -->
   </div>
