@@ -5,10 +5,10 @@
       <p><%= @idea.title %></p>
       <div class="form-input-inline">
         <div class="mr">
-      <%= f.input :start_date, as: :string, required: true, input_html: {class: "datepicker"} %>
+      <%= f.input :start_date, as: :string, required: true, input_html: {class: "datepicker"}   %>
         </div>
         <div>
-      <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker"} %>
+      <%= f.input :end_date, as: :string, required: true, input_html: {class: "datepicker-end"} %>
         </div>
       </div>
        <%= f.input :request_message, input_html: {value: f.object.request_message || 'I would like to book your idea. Have a good day'}%>
