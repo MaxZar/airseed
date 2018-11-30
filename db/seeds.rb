@@ -163,34 +163,32 @@ Idea.destroy_all
 User.destroy_all
 
 p "create users"
-users_array = []
+
 10.times do
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
-  my_hash = {
+  user = User.create!(
     email: Faker::Internet.email("#{first_name} #{last_name}", '_'),
     first_name: first_name,
     last_name: last_name,
     admin: false,
     # password: Faker::Internet.password(10, 20)
     password: "kalgrogo"
-  }
-  users_array << my_hash
+  )
+  user.remote_photo_url = 'https://picsum.photos/200/200/?random'
+  user.save!
 end
 
-admin_hash =   my_hash = {
-    email: 'master@seed.io',
-    first_name: 'Master',
-    last_name: 'Seed',
-    admin: true,
-    # password: Faker::Internet.password(10, 20)
-    password: "kalgrogo"
-  }
-
-users_array << admin_hash
-User.create!(users_array)
-
-
+admin = User.create!(
+  email: 'master@seed.io',
+  first_name: 'Master',
+  last_name: 'Seed',
+  admin: true,
+  # password: Faker::Internet.password(10, 20)
+  password: "kalgrogo"
+)
+admin.remote_photo_url = 'https://picsum.photos/200/200/?random'
+admin.save!
 
 puts "Create Ideas"
 
@@ -212,7 +210,6 @@ url = "https://images.unsplash.com/photo-1505628346881-b72b27e84530?ixlib=rb-0.3
 first_idea.remote_photo_url = url
 first_idea.save
 
-
 second_idea = Idea.create!(
   user_id: User.order("RANDOM()").first.id,
   title: "Lobster Farm in France",
@@ -230,7 +227,6 @@ second_idea = Idea.create!(
 url = "https://images.unsplash.com/photo-1533637224197-c90880aa997c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3a7daa8b052b8610bc402cc80f39facc&auto=format&fit=crop&w=976&q=80"
 second_idea.remote_photo_url = url
 second_idea.save
-
 
 User.all.each do |user|
   10.times do

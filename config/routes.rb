@@ -9,9 +9,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :ideas do
-    collection do
-      get 'ideas/search/:q', to: 'ideas#search', as: 'search'
-    end
     resources :bookings, only: [:new, :create]
   end
   resources :bookings, only: [:edit, :update]

@@ -37,8 +37,8 @@ class IdeasController < ApplicationController
   def show
     @marker =
       [{
-        lng: 80,
-        lat: 40,
+        lng: @idea.longitude,
+        lat: @idea.latitude
       }]
     # @marker = @marker.select do |e|
     #   e[:lng] || e[:lat]
@@ -100,9 +100,6 @@ class IdeasController < ApplicationController
     authorize @idea
     @idea.destroy
     redirect_to ideas_path
-  end
-
-  def search
   end
 
   private
