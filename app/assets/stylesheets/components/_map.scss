@@ -18,3 +18,11 @@
   top: 0 !important;
   width: 200px;
 }
+
+.small-map {
+  flex: 0 0 120px !important;
+  height: 100vh;
+  position: sticky !important; /* !important to override Gmaps inline CSS */
+  top: 0 !important;
+  width: 120px;
+}

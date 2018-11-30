@@ -12,17 +12,18 @@
     </div>
     <div class="stats-and-description">
       <div class="stats-flexline">
-        <div class="stat white-box">
+        <div class="stat">
           <h3>Price per day</h3>
           <p><%= @idea.pricing %> €</p>
         </div>
-        <div class="stat white-box">
+        <div class="stat">
           <h3>Min. duration</h3>
           <p><%= pluralize @idea.minimum_duration, "day" %></p>
         </div>
-        <div class="stat white-box main-container">
+        <div class="stat">
           <div
             id="map"
+            class="small-map"
             data-markers="<%= @marker.to_json %>"
             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
           ></div>
