@@ -1,7 +1,12 @@
-<h1>Reviews#new</h1>
-
-<%= simple_form_for [@booking, @review] do |f| %>
-  <%= f.input :comment %>
-  <%= f.input :rating, as: :select, collection: 1..5%>
-  <%= f.submit "add a review", class: "btn btn-primary" %>
-<% end %>
+<div class="container">
+  <div class="formulairereview">
+    <div class="principalerev Wwhite-box">
+      <%= simple_form_for [@booking, @review] do |f| %>
+        <p>Review</p>
+        <%= f.input :comment %>
+        <%= f.input :rating, as: :select, collection: 1..5%>
+        <%= f.submit "add a review", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
