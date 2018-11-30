@@ -277,7 +277,7 @@ ad_idea.save
 
 
 first_idea = Idea.create!(
-  user_id: 1,
+  user_id: User.first.id,
   title: "AlloChien",
   description: "A revolutionary idea for woldwide dog lovers. Learn the pedigree of a random dog with allochien. He barks, and we make the wold's best IA run to retrieve his pedigree. First tests are enthoutiastic. YC has already given 10B$. What's next ?",
   category: "Pets and animals",
@@ -295,7 +295,7 @@ first_idea.remote_photo_url = url
 first_idea.save
 
 first_idea = Idea.create!(
-  user_id: 1,
+  user_id: User.first.id,
   title: "AlloPoney",
   description: "A revolutionary idea for woldwide poney lovers. Learn the pedigree of a random Poney with allochien. He barks, and we make the wold's best IA run to retrieve his pedigree. First tests are enthoutiastic. YC has already given 10B$. What's next ?",
   category: "Pets and animals",
@@ -313,7 +313,7 @@ first_idea.remote_photo_url = url
 first_idea.save
 
 first_idea = Idea.create!(
-  user_id: 1,
+  user_id: User.first.id,
   title: "AlloDrunk",
   description: "A revolutionary idea for woldwide Drunk lovers. Learn the pedigree of a random Drunk with AlloDrunk. He barks, and we make the wold's best IA run to retrieve his pedigree. First tests are enthoutiastic. YC has already given 10B$. What's next ?",
   category: "Pets and animals",
@@ -332,7 +332,7 @@ first_idea.save
 
 
 second_idea = Idea.create!(
-  user_id: 2,
+  user_id: User.second.id,
   title: "Lobster Farm in France",
   description: "Everyone loves lobsters and they are so expansive. There are no farms...yet. I have been engineering a farm protocol which is working perfectly fine",
   category: "Food retail and service",
