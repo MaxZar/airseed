@@ -1,10 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# # This file should contain all the record creation needed to seed the database with its default values.
+# # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+# #
+# # Examples:
+# #
+# #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+# #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
 CATEGORIES = [
@@ -163,6 +163,26 @@ Idea.destroy_all
 User.destroy_all
 
 p "create users"
+user = User.create!(
+  email: 'genius@seed.io',
+  first_name: 'Jean-Ol',
+  last_name: 'Grogo',
+  admin: false,
+  # password: Faker::Internet.password(10, 20)
+  password: "kalgrogo"
+)
+user.remote_photo_url = 'https://picsum.photos/200/200/?random'
+user.save!
+user = User.create!(
+  email: 'dummy@seed.io',
+  first_name: 'elon',
+  last_name: 'musk',
+  admin: false,
+  # password: Faker::Internet.password(10, 20)
+  password: "kalgrogo"
+)
+user.remote_photo_url = 'https://picsum.photos/200/200/?random'
+user.save!
 
 10.times do
   first_name = Faker::Name.first_name
@@ -179,6 +199,9 @@ p "create users"
   user.save!
 end
 
+
+
+
 admin = User.create!(
   email: 'master@seed.io',
   first_name: 'Master',
@@ -192,8 +215,69 @@ admin.save!
 
 puts "Create Ideas"
 
+
+
+
+ad_idea = Idea.create!(
+  user_id: User.last.id,
+  title: "Meet Love",
+  description: "A revolutionary idea for woldwide Drunk lovers. Learn the pedigree of a random Drunk with AlloDrunk. He barks, and we make the wold's best IA run to retrieve his pedigree. First tests are enthoutiastic. YC has already given 10B$. What's next ?",
+  category: "DATING APP",
+  revenue_model: "Subscription",
+  pricing: rand(50..200),
+  start_date: Faker::Date.forward(1),
+  end_date: Faker::Date.forward(100 + rand(1..100)),
+  minimum_duration: rand(1..3),
+  application_criteria: "any",
+  address: ADDRESSES.shuffle.first,
+  is_ad: true
+)
+
+url = "app/assets/images/tinder.png"
+ad_idea.remote_photo_url = url
+ad_idea.save
+
+ad_idea = Idea.create!(
+  user_id: User.last.id,
+  title: "Spotify premium",
+  description: "A revolutionary idea for woldwide Drunk lovers. Learn the pedigree of a random Drunk with AlloDrunk. He barks, and we make the wold's best IA run to retrieve his pedigree. First tests are enthoutiastic. YC has already given 10B$. What's next ?",
+  category: "MUSIC",
+  revenue_model: "Subscription",
+  pricing: rand(50..200),
+  start_date: Faker::Date.forward(1),
+  end_date: Faker::Date.forward(100 + rand(1..100)),
+  minimum_duration: rand(1..3),
+  application_criteria: "any",
+  address: ADDRESSES.shuffle.first,
+  is_ad: true
+)
+
+url = "app/assets/images/spotify.png"
+ad_idea.remote_photo_url = url
+
+ad_idea.save
+ad_idea = Idea.create!(
+  user_id: User.last.id,
+  title: "McDonald's",
+  description: "A revolutionary idea for woldwide Drunk lovers. Learn the pedigree of a random Drunk with AlloDrunk. He barks, and we make the wold's best IA run to retrieve his pedigree. First tests are enthoutiastic. YC has already given 10B$. What's next ?",
+  category: "Gastronomy",
+  revenue_model: "Subscription",
+  pricing: rand(50..200),
+  start_date: Faker::Date.forward(1),
+  end_date: Faker::Date.forward(100 + rand(1..100)),
+  minimum_duration: rand(1..3),
+  application_criteria: "any",
+  address: ADDRESSES.shuffle.first,
+  is_ad: true
+)
+
+url = "app/assets/images/mcdo.png"
+ad_idea.remote_photo_url = url
+ad_idea.save
+
+
 first_idea = Idea.create!(
-  user_id: User.order("RANDOM()").first.id,
+  user_id: 1,
   title: "AlloChien",
   description: "A revolutionary idea for woldwide dog lovers. Learn the pedigree of a random dog with allochien. He barks, and we make the wold's best IA run to retrieve his pedigree. First tests are enthoutiastic. YC has already given 10B$. What's next ?",
   category: "Pets and animals",
@@ -210,8 +294,45 @@ url = "https://images.unsplash.com/photo-1505628346881-b72b27e84530?ixlib=rb-0.3
 first_idea.remote_photo_url = url
 first_idea.save
 
+first_idea = Idea.create!(
+  user_id: 1,
+  title: "AlloPoney",
+  description: "A revolutionary idea for woldwide poney lovers. Learn the pedigree of a random Poney with allochien. He barks, and we make the wold's best IA run to retrieve his pedigree. First tests are enthoutiastic. YC has already given 10B$. What's next ?",
+  category: "Pets and animals",
+  revenue_model: "Subscription",
+  pricing: rand(50..200),
+  start_date: Faker::Date.forward(1),
+  end_date: Faker::Date.forward(100 + rand(1..100)),
+  minimum_duration: rand(1..3),
+  application_criteria: "any",
+  address: ADDRESSES.shuffle.first
+)
+
+url = "https://images.unsplash.com/photo-1505628346881-b72b27e84530?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8ecbdf99ad1c8e52f00c7f6682a27f27&auto=format&fit=crop&w=934&q=80"
+first_idea.remote_photo_url = url
+first_idea.save
+
+first_idea = Idea.create!(
+  user_id: 1,
+  title: "AlloDrunk",
+  description: "A revolutionary idea for woldwide Drunk lovers. Learn the pedigree of a random Drunk with AlloDrunk. He barks, and we make the wold's best IA run to retrieve his pedigree. First tests are enthoutiastic. YC has already given 10B$. What's next ?",
+  category: "Pets and animals",
+  revenue_model: "Subscription",
+  pricing: rand(50..200),
+  start_date: Faker::Date.forward(1),
+  end_date: Faker::Date.forward(100 + rand(1..100)),
+  minimum_duration: rand(1..3),
+  application_criteria: "any",
+  address: ADDRESSES.shuffle.first
+)
+
+url = "https://images.unsplash.com/photo-1505628346881-b72b27e84530?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8ecbdf99ad1c8e52f00c7f6682a27f27&auto=format&fit=crop&w=934&q=80"
+first_idea.remote_photo_url = url
+first_idea.save
+
+
 second_idea = Idea.create!(
-  user_id: User.order("RANDOM()").first.id,
+  user_id: 2,
   title: "Lobster Farm in France",
   description: "Everyone loves lobsters and they are so expansive. There are no farms...yet. I have been engineering a farm protocol which is working perfectly fine",
   category: "Food retail and service",
@@ -248,6 +369,7 @@ User.all.each do |user|
     idea.save
   end
 end
+
 
 p "create bookings"
 bookings_array = []
@@ -291,3 +413,5 @@ Booking.all.each do |booking|
 end
 
 Review.create!(reviews_array)
+
+

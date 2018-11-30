@@ -13,6 +13,7 @@
 }
 
 /* Modal Content/Box */
+
 .modal-content {
     background: url(/assets/team.jpg) no-repeat center center fixed;
     background-size: contain;
@@ -23,6 +24,14 @@
     border-radius: 9px;
     width: 60%; /* Could be more or less, depending on screen size */
     height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    h3 {
+      color: white;
+      font-size: 40px;
+    }
 }
 
 /* The Close Button */

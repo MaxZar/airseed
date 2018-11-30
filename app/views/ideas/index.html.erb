@@ -12,7 +12,7 @@
 
 <div class="main-container">
   <div class="container">
-    <p><%= pluralize @ideas.count, 'idea' %> for your search</p>
+    <p id="search-text"><%= pluralize @ideas.count, 'idea' %> for your search</p>
     <div class="row">
       <% @ideas.each do |idea| %>
         <div class="col-xs-12 col-sm-4">
