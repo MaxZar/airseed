@@ -4,8 +4,8 @@ import "../plugins/flatpickr"
 
 
 
-import { initUpdateNavbarOnScroll } from '../components/navbar';
-initUpdateNavbarOnScroll();
+// import { initUpdateNavbarOnScroll } from '../components/navbar';
+// initUpdateNavbarOnScroll();
 
 import { loadDynamicBannerText } from '../components/banner';
 if (document.getElementById('banner-typed-text')) {
