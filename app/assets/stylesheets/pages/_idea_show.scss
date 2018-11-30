@@ -25,6 +25,17 @@ $elements-margin: 15px;
   }
 }
 
+.fab {
+  margin-top: 15px;
+  font-size: 40px;
+  color: #2878b5;
+}
+
+.fab:hover {
+  color: #2878b5;
+  opacity: .4;
+}
+
 .main h3 {
   margin-top: 0px;
   margin-bottom: 30px;
@@ -49,16 +60,12 @@ $elements-margin: 15px;
   display: block;
   margin: 0 !important;
   margin-bottom: 30px !important;
+  border-radius: 9px;
 }
 .stat {
   font-size: 0.8em;
   h3 {
     margin: 0;
-  }
-}
-@media (max-width: 940px) {
-  .idea {
-    display: block;
   }
 }
 
@@ -73,6 +80,7 @@ h2 {
   width: 70%;
   margin-top: 30px;
   background: #37B686;
+  border-radius: 9px;
 }
 
 .main .btn:hover {
@@ -102,6 +110,7 @@ $elements-margin: 15px;
   .main {
     flex: 0 0 30%;
     margin-right: $elements-margin;
+    margin-bottom: 15px !important;
   }
   .stats-and-description {
     flex: 1 1 auto;
@@ -117,6 +126,7 @@ $elements-margin: 15px;
   }
   .description {
     flex: 1 1 auto;
+    margin: 0px 10px 15px 10px;
   }
 }
 .stats-flexline {
@@ -125,6 +135,7 @@ $elements-margin: 15px;
 }
 .stat {
   flex-grow: 1;
+  margin: 35px 10px 10px 10px;
 }
 
 .list-unstyled:last-child > hr {
@@ -135,14 +146,19 @@ $elements-margin: 15px;
   display: none;
 }
 
+.display-flex{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
 .rating {
   margin-right: 30px;
-  width: 100px;
+  width: 200px;
 }
 
 .reviews {
-  display: flex;
-  margin-right: 35px;
+  margin-right: 10px;
   margin-left: 35px;
 }
 
