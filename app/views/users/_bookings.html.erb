@@ -19,7 +19,7 @@
             %>
           <% elsif booking.validated.nil? %>
             <p><%=
-            "Wait for #{booking.idea.user.first} to review your application"
+            "Wait for #{booking.idea.user.first_name} to review your application"
             %>
           <% end %>
           </p>
