@@ -1,26 +1,35 @@
+<div class="bookings-container">
   <div class="col-xs-12 bookings">
     <% bookings.each do |booking| %>
       <% booking_date = ((Time.now - booking.created_at) / 1.day).round %>
       <% days_left = ((booking.end_date - Time.now.to_date) / 1.day).round %>
       <% days =  (booking.end_date - booking.start_date).to_i %>
       <div class="booking">
-        <div class="booking-title">
-          <%= render 'shared/avatar', user: booking.user  %>
-          <div class="booking-header">
-            <div class="booking-header-text">
-                <p class="small-title"><strong><%= booking.idea.title  %></strong></p>
-            </div>
-            <div class="booking-details">
-              <p><%=
-              "Only #{days_left} days left to change your world with this idea at the reasonable cost of $#{booking.idea.pricing * days}"
-              %>
-              </p>
-            </div>
-            <div>
-              <%=  link_to("Leave a comment", new_booking_review_path(booking), class:"review-link") %>
-            </div>
-          </div>
+        <div class="booking-picture">
+          <%= render 'shared/picture', idea: booking.idea  %>
         </div>
+        <div class="booking-title">
+            <p class="small-title"><strong><%= booking.idea.title  %></strong></p>
+        </div>
+        <div class="booking-description">
+
+          <% if booking.validated %>
+            <p><%=
+            "Only #{days_left} days left to change your world with this idea at the reasonable cost of $#{booking.idea.pricing * days}"
+            %>
+          <% elsif booking.validated.nil? %>
+            <p><%=
+            "Wait for #{booking.idea.user.first} to review your application"
+            %>
+          <% end %>
+          </p>
+        </div>
+        <% if booking.validated %>
+          <div class="booking-review">
+            <%=  link_to("Review", new_booking_review_path(booking), class:"review-link") %>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>
+</div>

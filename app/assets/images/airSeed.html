@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://localhost:3000/users/show -->
+<html><div id="__kantu_mark__"></div><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="./airSeed_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./airSeed_files/font-awesome.min.css">
+    <link rel="stylesheet" href="./airSeed_files/style.css">
+    <title>airSeed</title>
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="Gn9zEmTe2CoY6fa2seTNzgaOpywkQO2FjGl8/2aFC9FSfZpZVrn+jte4ROXZOGAH04VU63ztLwZuiCM3gW+Ppw==">
+    <meta name="action-cable-url" content="/cable">
+    <link rel="stylesheet" media="all" href="./airSeed_files/application-3fdcec5fa8ee78acedab87b56aeeba8ba1161cc412e29b5cf8e19c4b27465342.css">
+    <link rel="shortcut icon" type="image/x-icon" href="./airSeed_files/plant-5a4f0324e930d9f829f6bb5d01fea54cab71c4809ea67faf14cf2fd18380ff40.png">
+    <link rel="stylesheet" media="all" href="./airSeed_files/application-89ab4c7eb068a8b65798312937af45f2.css"> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+  </head>
+  <body cz-shortcut-listen="true">
+    <div class="wrapper">
+      <div class="border" style="width: 100%; height: 70px"></div>
+      <div class="navbar-wagon navbar-fixed-top">
+  <!-- Logo -->
+  <a class="navbar-wagon-brand" href="http://localhost:3000/">
+    <img height="50" src="./airSeed_files/plant-5a4f0324e930d9f829f6bb5d01fea54cab71c4809ea67faf14cf2fd18380ff40.png">
+</a>
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+    <!-- Links -->
+    <a class="navbar-wagon-item navbar-wagon-link navbar-title" href="http://localhost:3000/ideas">Home</a>
+    <a class="navbar-wagon-item navbar-wagon-link navbar-title" href="http://localhost:3000/users/show">Dashboard</a>
+    <a class="navbar-wagon-item navbar-wagon-link navbar-title" href="http://localhost:3000/ideas/new">I'm feeling creative</a>
+    <a class="navbar-wagon-item navbar-wagon-link navbar-title" href="http://localhost:3000/ideas">Search</a>
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
+          <img class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown" title="master@seed.io" src="./airSeed_files/admin_avatar-4152daeaace5ee137128bfc9b7ecd576337791f0cb53f635f1fc3045932630ad.png">
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <a href="http://localhost:3000/users/show">
+                <i class="fa fa-user"></i> Profile
+</a>            </li>
+            <li>
+              <a href="http://localhost:3000/users/show#">
+                <i class="fa fa-cog"></i>  Settings
+</a>            </li>
+            <li>
+              <a rel="nofollow" data-method="delete" href="http://localhost:3000/users/sign_out">
+                <i class="fa fa-sign-out"></i>  Log out
+</a>            </li>
+          </ul>
+        </div>
+      </div>
+    <!-- Avatar with dropdown menu -->
+  </div>
+
+  <!-- Dropdown list appearing on mobile only -->
+  <div class="navbar-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><a href="http://localhost:3000/users/show#">Some mobile link</a></li>
+        <li><a href="http://localhost:3000/users/show#">Other one</a></li>
+        <li><a href="http://localhost:3000/users/show#">Other one</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+      <div class="container">
+  <div class="row">
+      <div class="section-title">
+        <h3>My bookings</h3>
+      </div>
+        <div class="request-tabs">
+          <ul class="nav nav-tabs">
+            <li class="nav-button active"><a data-toggle="tab" href="http://localhost:3000/users/show#current" class="nav-button" aria-expanded="true">Active (3)</a></li>
+            <li class=""><a data-toggle="tab" href="http://localhost:3000/users/show#menu4" class="nav-button" aria-expanded="false">Pending</a></li>
+          </ul>
+        </div>
+        <div class="tab-content">
+          <div id="current" class="tab-pane fade active in">
+            <div class="bookings-container">
+  <div class="col-xs-12 bookings">
+      <div class="booking">
+        <div class="booking-picture">
+          <div class="picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+    url(&#39;http://res.cloudinary.com/drkf5odgx/image/upload/c_fill,h_70,w_100/v1543418157/zd4kzhrtt35wfzdaz73k.jpg&#39;)">
+</div>
+
+        </div>
+        <div class="booking-title">
+            <p class="small-title"><strong>Incredible Copper Keyboard</strong></p>
+        </div>
+        <div class="booking-description">
+
+            <p>Only 0 days left to change your world with this idea at the reasonable cost of $7350
+          </p>
+        </div>
+          <div class="booking-review">
+            <a class="review-link" href="http://localhost:3000/bookings/42/reviews/new">Review</a>
+          </div>
+      </div>
+      <div class="booking">
+        <div class="booking-picture">
+          <div class="picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+    url(&#39;http://res.cloudinary.com/drkf5odgx/image/upload/c_fill,h_70,w_100/question-lightbulb.jpg&#39;)">
+</div>
+
+        </div>
+        <div class="booking-title">
+            <p class="small-title"><strong>test12345</strong></p>
+        </div>
+        <div class="booking-description">
+
+            <p>Only 0 days left to change your world with this idea at the reasonable cost of $0
+          </p>
+        </div>
+          <div class="booking-review">
+            <a class="review-link" href="http://localhost:3000/bookings/62/reviews/new">Review</a>
+          </div>
+      </div>
+      <div class="booking">
+        <div class="booking-picture">
+          <div class="picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+    url(&#39;http://res.cloudinary.com/drkf5odgx/image/upload/c_fill,h_70,w_100/v1543418165/q7cwizwwzejq4s1mwc2h.jpg&#39;)">
+</div>
+
+        </div>
+        <div class="booking-title">
+            <p class="small-title"><strong>Rustic Steel Chair</strong></p>
+        </div>
+        <div class="booking-description">
+
+            <p>Only 0 days left to change your world with this idea at the reasonable cost of $101
+          </p>
+        </div>
+          <div class="booking-review">
+            <a class="review-link" href="http://localhost:3000/bookings/64/reviews/new">Review</a>
+          </div>
+      </div>
+  </div>
+</div>
+
+          </div>
+          <div id="menu4" class="tab-pane fade">
+            <div class="bookings-container">
+  <div class="col-xs-12 bookings">
+  </div>
+</div>
+
+          </div>
+        </div>
+  </div>
+
+  <div class="row">
+      <div class="section-title">
+        <h3>My requests</h3>
+      </div>
+        <div class="request-tabs">
+          <ul class="nav nav-tabs">
+            <li class="nav-button active"><a data-toggle="tab" href="http://localhost:3000/users/show#home" class="nav-button">Pending (0)</a></li>
+            <li><a data-toggle="tab" href="http://localhost:3000/users/show#menu1" class="nav-button">All</a></li>
+            <li><a data-toggle="tab" href="http://localhost:3000/users/show#menu2" class="nav-button">Accepted</a></li>
+            <li><a data-toggle="tab" href="http://localhost:3000/users/show#menu3" class="nav-button">Declined</a></li>
+          </ul>
+        </div>
+        <div class="tab-content">
+          <div id="home" class="tab-pane fade in active">
+            <div class="requests-container">
+  <div class="col-xs-12 requests">
+  </div>
+</div>
+
+          </div>
+          <div id="menu1" class="tab-pane fade">
+            <div class="requests-container">
+  <div class="col-xs-12 requests">
+      <div class="request">
+        <div class="request-title">
+          <img class="main-avatar" title="Francisco" src="./airSeed_files/admin_avatar-4152daeaace5ee137128bfc9b7ecd576337791f0cb53f635f1fc3045932630ad.png">
+
+          <div class="request-header">
+            <div class="request-header-text">
+                <p>You've </p>
+                <p class="declined">declined</p>
+                <p><strong>Francisco</strong></p>
+                <p>'s request for Rustic Steel Chair</p>
+            </div>
+            <div class="request-details">
+              <p>2018-11-29 - 2018-12-05</p>
+              <p><strong>
+                $606
+              </strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="request-text">
+          <p>
+            Fugiat explicabo aut. Et et blanditiis. Itaque nisi molestiae. Aut harum aut. Occaecati animi dolores. Sit enim ad. Accusantium minus ducimus. Minus qui ullam. Dolorem ut dolor. Ut temporibus est. Possimus quisquam suscipit. Ipsam culpa nisi. Ea deserunt et. Possimus eos .
+          </p>
+        </div>
+      </div>
+      <div class="request">
+        <div class="request-title">
+          <img class="main-avatar" title="Reagan" src="./airSeed_files/admin_avatar-4152daeaace5ee137128bfc9b7ecd576337791f0cb53f635f1fc3045932630ad.png">
+
+          <div class="request-header">
+            <div class="request-header-text">
+                <p>You've </p>
+                <p class="declined">declined</p>
+                <p><strong>Reagan</strong></p>
+                <p>'s request for Rustic Steel Chair</p>
+            </div>
+            <div class="request-details">
+              <p>2018-11-29 - 2018-12-05</p>
+              <p><strong>
+                $606
+              </strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="request-text">
+          <p>
+            Reprehenderit qui odio. Quod et totam. Sunt hic facilis. Voluptatem itaque repellat. Aliquid pariatur libero. Autem corrupti impedit. Autem sit natus. Quia consequatur qui. Placeat praesentium aut. Magnam sunt aut. Eum velit facilis. Et enim natus. Ducimus quo quibusdam. Repudiandae deserunt beatae. Commodi accusantium placeat. Fuga sequi illum. Eligendi quisqua.
+          </p>
+        </div>
+      </div>
+      <div class="request">
+        <div class="request-title">
+          <img class="main-avatar" title="Reagan" src="./airSeed_files/admin_avatar-4152daeaace5ee137128bfc9b7ecd576337791f0cb53f635f1fc3045932630ad.png">
+
+          <div class="request-header">
+            <div class="request-header-text">
+                <p>You've </p>
+                <p class="accepted">accepted</p>
+                <p><strong>Reagan</strong></p>
+                <p>'s request for Rustic Steel Chair</p>
+            </div>
+            <div class="request-details">
+              <p>2018-11-29 - 2018-12-05</p>
+              <p><strong>
+                $606
+              </strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="request-text">
+          <p>
+            Et voluptatem necessitatibus. Rem quibusdam commodi. Molestiae corporis similique. Iusto in nulla. Consequatur quibusdam natus. Quia vitae iusto. Exercitationem velit earum. Minima sequi molestias. Suscipit sequi sed. Vel autem incidunt. Id quis culpa. Cumque quia tempore. Eaque accusantium laborum. Aut do.
+          </p>
+        </div>
+      </div>
+      <div class="request">
+        <div class="request-title">
+          <img class="main-avatar" title="Bob" src="./airSeed_files/admin_avatar-4152daeaace5ee137128bfc9b7ecd576337791f0cb53f635f1fc3045932630ad.png">
+
+          <div class="request-header">
+            <div class="request-header-text">
+                <p>You've </p>
+                <p class="declined">declined</p>
+                <p><strong>Bob</strong></p>
+                <p>'s request for test12345</p>
+            </div>
+            <div class="request-details">
+              <p>2018-11-28 - 2018-11-28</p>
+              <p><strong>
+                $0
+              </strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="request-text">
+          <p>
+            Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me
+          </p>
+        </div>
+      </div>
+      <div class="request">
+        <div class="request-title">
+          <img class="main-avatar" title="Bob" src="./airSeed_files/admin_avatar-4152daeaace5ee137128bfc9b7ecd576337791f0cb53f635f1fc3045932630ad.png">
+
+          <div class="request-header">
+            <div class="request-header-text">
+                <p>You've </p>
+                <p class="accepted">accepted</p>
+                <p><strong>Bob</strong></p>
+                <p>'s request for test12345</p>
+            </div>
+            <div class="request-details">
+              <p>2018-11-28 - 2018-11-28</p>
+              <p><strong>
+                $0
+              </strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="request-text">
+          <p>
+            Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me
+          </p>
+        </div>
+      </div>
+      <div class="request">
+        <div class="request-title">
+          <img class="main-avatar" title="Bob" src="./airSeed_files/admin_avatar-4152daeaace5ee137128bfc9b7ecd576337791f0cb53f635f1fc3045932630ad.png">
+
+          <div class="request-header">
+            <div class="request-header-text">
+                <p>You've </p>
+                <p class="declined">declined</p>
+                <p><strong>Bob</strong></p>
+                <p>'s request for Enormous Paper Shoes</p>
+            </div>
+            <div class="request-details">
+              <p>2018-11-29 - 2018-12-29</p>
+              <p><strong>
+                $3030
+              </strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="request-text">
+          <p>
+            Please Accept my id Please Accept my id Please Accept my id Please Accept my id Please Accept my id Please Accept my id Please Accept my id Please Accept my id Please Accept my id Please Accept my id Please Accept my id Please Accept my id Please Accept my id Please Accept my id Please Accept my id Please Accept my id
+          </p>
+        </div>
+      </div>
+      <div class="request">
+        <div class="request-title">
+          <img class="main-avatar" title="Bob" src="./airSeed_files/admin_avatar-4152daeaace5ee137128bfc9b7ecd576337791f0cb53f635f1fc3045932630ad.png">
+
+          <div class="request-header">
+            <div class="request-header-text">
+                <p>You've </p>
+                <p class="accepted">accepted</p>
+                <p><strong>Bob</strong></p>
+                <p>'s request for Rustic Steel Chair</p>
+            </div>
+            <div class="request-details">
+              <p>2018-11-29 - 2018-11-30</p>
+              <p><strong>
+                $101
+              </strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="request-text">
+          <p>
+            I would like to book your idea. Have a good day
+          </p>
+        </div>
+      </div>
+  </div>
+</div>
+
+          </div>
+          <div id="menu2" class="tab-pane fade">
+            <div class="requests-container">
+  <div class="col-xs-12 requests">
+      <div class="request">
+        <div class="request-title">
+          <img class="main-avatar" title="Reagan" src="./airSeed_files/admin_avatar-4152daeaace5ee137128bfc9b7ecd576337791f0cb53f635f1fc3045932630ad.png">
+
+          <div class="request-header">
+            <div class="request-header-text">
+                <p>You've </p>
+                <p class="accepted">accepted</p>
+                <p><strong>Reagan</strong></p>
+                <p>'s request for Rustic Steel Chair</p>
+            </div>
+            <div class="request-details">
+              <p>2018-11-29 - 2018-12-05</p>
+              <p><strong>
+                $606
+              </strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="request-text">
+          <p>
+            Et voluptatem necessitatibus. Rem quibusdam commodi. Molestiae corporis similique. Iusto in nulla. Consequatur quibusdam natus. Quia vitae iusto. Exercitationem velit earum. Minima sequi molestias. Suscipit sequi sed. Vel autem incidunt. Id quis culpa. Cumque quia tempore. Eaque accusantium laborum. Aut do.
+          </p>
+        </div>
+      </div>
+      <div class="request">
+        <div class="request-title">
+          <img class="main-avatar" title="Bob" src="./airSeed_files/admin_avatar-4152daeaace5ee137128bfc9b7ecd576337791f0cb53f635f1fc3045932630ad.png">
+
+          <div class="request-header">
+            <div class="request-header-text">
+                <p>You've </p>
+                <p class="accepted">accepted</p>
+                <p><strong>Bob</strong></p>
+                <p>'s request for test12345</p>
+            </div>
+            <div class="request-details">
+              <p>2018-11-28 - 2018-11-28</p>
+              <p><strong>
+                $0
+              </strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="request-text">
+          <p>
+            Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me
+          </p>
+        </div>
+      </div>
+      <div class="request">
+        <div class="request-title">
+          <img class="main-avatar" title="Bob" src="./airSeed_files/admin_avatar-4152daeaace5ee137128bfc9b7ecd576337791f0cb53f635f1fc3045932630ad.png">
+
+          <div class="request-header">
+            <div class="request-header-text">
+                <p>You've </p>
+                <p class="accepted">accepted</p>
+                <p><strong>Bob</strong></p>
+                <p>'s request for Rustic Steel Chair</p>
+            </div>
+            <div class="request-details">
+              <p>2018-11-29 - 2018-11-30</p>
+              <p><strong>
+                $101
+              </strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="request-text">
+          <p>
+            I would like to book your idea. Have a good day
+          </p>
+        </div>
+      </div>
+  </div>
+</div>
+
+          </div>
+          <div id="menu3" class="tab-pane fade">
+            <div class="requests-container">
+  <div class="col-xs-12 requests">
+      <div class="request">
+        <div class="request-title">
+          <img class="main-avatar" title="Francisco" src="./airSeed_files/admin_avatar-4152daeaace5ee137128bfc9b7ecd576337791f0cb53f635f1fc3045932630ad.png">
+
+          <div class="request-header">
+            <div class="request-header-text">
+                <p>You've </p>
+                <p class="declined">declined</p>
+                <p><strong>Francisco</strong></p>
+                <p>'s request for Rustic Steel Chair</p>
+            </div>
+            <div class="request-details">
+              <p>2018-11-29 - 2018-12-05</p>
+              <p><strong>
+                $606
+              </strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="request-text">
+          <p>
+            Fugiat explicabo aut. Et et blanditiis. Itaque nisi molestiae. Aut harum aut. Occaecati animi dolores. Sit enim ad. Accusantium minus ducimus. Minus qui ullam. Dolorem ut dolor. Ut temporibus est. Possimus quisquam suscipit. Ipsam culpa nisi. Ea deserunt et. Possimus eos .
+          </p>
+        </div>
+      </div>
+      <div class="request">
+        <div class="request-title">
+          <img class="main-avatar" title="Reagan" src="./airSeed_files/admin_avatar-4152daeaace5ee137128bfc9b7ecd576337791f0cb53f635f1fc3045932630ad.png">
+
+          <div class="request-header">
+            <div class="request-header-text">
+                <p>You've </p>
+                <p class="declined">declined</p>
+                <p><strong>Reagan</strong></p>
+                <p>'s request for Rustic Steel Chair</p>
+            </div>
+            <div class="request-details">
+              <p>2018-11-29 - 2018-12-05</p>
+              <p><strong>
+                $606
+              </strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="request-text">
+          <p>
+            Reprehenderit qui odio. Quod et totam. Sunt hic facilis. Voluptatem itaque repellat. Aliquid pariatur libero. Autem corrupti impedit. Autem sit natus. Quia consequatur qui. Placeat praesentium aut. Magnam sunt aut. Eum velit facilis. Et enim natus. Ducimus quo quibusdam. Repudiandae deserunt beatae. Commodi accusantium placeat. Fuga sequi illum. Eligendi quisqua.
+          </p>
+        </div>
+      </div>
+      <div class="request">
+        <div class="request-title">
+          <img class="main-avatar" title="Bob" src="./airSeed_files/admin_avatar-4152daeaace5ee137128bfc9b7ecd576337791f0cb53f635f1fc3045932630ad.png">
+
+          <div class="request-header">
+            <div class="request-header-text">
+                <p>You've </p>
+                <p class="declined">declined</p>
+                <p><strong>Bob</strong></p>
+                <p>'s request for test12345</p>
+            </div>
+            <div class="request-details">
+              <p>2018-11-28 - 2018-11-28</p>
+              <p><strong>
+                $0
+              </strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="request-text">
+          <p>
+            Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me Please accept me
+          </p>
+        </div>
+      </div>
+      <div class="request">
+        <div class="request-title">
+          <img class="main-avatar" title="Bob" src="./airSeed_files/admin_avatar-4152daeaace5ee137128bfc9b7ecd576337791f0cb53f635f1fc3045932630ad.png">
+
+          <div class="request-header">
+            <div class="request-header-text">
+                <p>You've </p>
+                <p class="declined">declined</p>
+                <p><strong>Bob</strong></p>
+                <p>'s request for Enormous Paper Shoes</p>
+            </div>
+            <div class="request-details">
+              <p>2018-11-29 - 2018-12-29</p>
+              <p><strong>
+                $3030
+              </strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="request-text">
+          <p>
+            Please Accept my id Please Accept my id Please Accept my id Please Accept my id Please Accept my id Please Accept my id Please Accept my id Please Accept my id Please Accept my id Please Accept my id Please Accept my id Please Accept my id Please Accept my id Please Accept my id Please Accept my id Please Accept my id
+          </p>
+        </div>
+      </div>
+  </div>
+</div>
+
+          </div>
+        </div>
+  </div>
+  <div class="row">
+    <div class="section-title"><h3>My ideas</h3></div>
+    <div class="ideas">
+        <div class="col-xs-6 col-sm-4 col-md-3 idea">
+          <a href="http://localhost:3000/ideas/167">
+  </a><article class="card card--1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+      url(&#39;http://res.cloudinary.com/drkf5odgx/image/upload/c_fill,h_300,w_400/v1543418165/q7cwizwwzejq4s1mwc2h.jpg&#39;)"><a href="http://localhost:3000/ideas/167">
+    <div class="card__info-hover">
+      <svg class="card__like" viewBox="0 0 24 24">
+        <path fill="#000000" d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z"></path>
+      </svg>
+      <div class="card__clock-info">
+        <span class="card__time">$ 101</span>
+      </div>
+
+    </div>
+    <div class="card__img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+        url(&#39;http://res.cloudinary.com/drkf5odgx/image/upload/c_fill,h_300,w_400/v1543418165/q7cwizwwzejq4s1mwc2h.jpg&#39;)"></div>
+      <div class="card__img--hover" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+          url(&#39;http://res.cloudinary.com/drkf5odgx/image/upload/c_fill,h_300,w_400/v1543418165/q7cwizwwzejq4s1mwc2h.jpg&#39;)"></div>
+    </a>
+    <div class="card__info">
+      <span class="card__category"> Events Servic...</span>
+      <h3 class="card__title">Rustic Steel Cha...</h3>
+      <div class="card-footer">
+        <div class="author">
+        <span class="card__by">by <a href="http://localhost:3000/users/show#" class="card__author" title="author">Bob</a></span>
+        </div>
+        <div class="booking-status">
+            <span class="card__by">booked</span>
+            <span class="card__by"><i class="fas fa-circle" style="color: red"></i></span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 idea">
+          <a href="http://localhost:3000/ideas/168">
+  </a><article class="card card--1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+      url(&#39;http://res.cloudinary.com/drkf5odgx/image/upload/c_fill,h_300,w_400/v1543418166/tndvappjictkcjedhhlr.jpg&#39;)"><a href="http://localhost:3000/ideas/168">
+    <div class="card__info-hover">
+      <svg class="card__like" viewBox="0 0 24 24">
+        <path fill="#000000" d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z"></path>
+      </svg>
+      <div class="card__clock-info">
+        <span class="card__time">$ 103</span>
+      </div>
+
+    </div>
+    <div class="card__img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+        url(&#39;http://res.cloudinary.com/drkf5odgx/image/upload/c_fill,h_300,w_400/v1543418166/tndvappjictkcjedhhlr.jpg&#39;)"></div>
+      <div class="card__img--hover" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+          url(&#39;http://res.cloudinary.com/drkf5odgx/image/upload/c_fill,h_300,w_400/v1543418166/tndvappjictkcjedhhlr.jpg&#39;)"></div>
+    </a>
+    <div class="card__info">
+      <span class="card__category"> Online Media</span>
+      <h3 class="card__title">Mediocre Copper ...</h3>
+      <div class="card-footer">
+        <div class="author">
+        <span class="card__by">by <a href="http://localhost:3000/users/show#" class="card__author" title="author">Bob</a></span>
+        </div>
+        <div class="booking-status">
+            <span class="card__by">available</span>
+            <span class="card__by"><i class="fas fa-circle" style="color: green"></i></span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 idea">
+          <a href="http://localhost:3000/ideas/169">
+  </a><article class="card card--1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+      url(&#39;http://res.cloudinary.com/drkf5odgx/image/upload/c_fill,h_300,w_400/v1543418167/zeuzjw5b33a5g8bpaojh.jpg&#39;)"><a href="http://localhost:3000/ideas/169">
+    <div class="card__info-hover">
+      <svg class="card__like" viewBox="0 0 24 24">
+        <path fill="#000000" d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z"></path>
+      </svg>
+      <div class="card__clock-info">
+        <span class="card__time">$ 116</span>
+      </div>
+
+    </div>
+    <div class="card__img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+        url(&#39;http://res.cloudinary.com/drkf5odgx/image/upload/c_fill,h_300,w_400/v1543418167/zeuzjw5b33a5g8bpaojh.jpg&#39;)"></div>
+      <div class="card__img--hover" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+          url(&#39;http://res.cloudinary.com/drkf5odgx/image/upload/c_fill,h_300,w_400/v1543418167/zeuzjw5b33a5g8bpaojh.jpg&#39;)"></div>
+    </a>
+    <div class="card__info">
+      <span class="card__category"> Publishing</span>
+      <h3 class="card__title">Lightweight Alum...</h3>
+      <div class="card-footer">
+        <div class="author">
+        <span class="card__by">by <a href="http://localhost:3000/users/show#" class="card__author" title="author">Bob</a></span>
+        </div>
+        <div class="booking-status">
+            <span class="card__by">available</span>
+            <span class="card__by"><i class="fas fa-circle" style="color: green"></i></span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 idea">
+          <a href="http://localhost:3000/ideas/170">
+  </a><article class="card card--1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+      url(&#39;http://res.cloudinary.com/drkf5odgx/image/upload/c_fill,h_300,w_400/v1543418169/jwydc34tivnvq8efjqup.jpg&#39;)"><a href="http://localhost:3000/ideas/170">
+    <div class="card__info-hover">
+      <svg class="card__like" viewBox="0 0 24 24">
+        <path fill="#000000" d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z"></path>
+      </svg>
+      <div class="card__clock-info">
+        <span class="card__time">$ 137</span>
+      </div>
+
+    </div>
+    <div class="card__img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+        url(&#39;http://res.cloudinary.com/drkf5odgx/image/upload/c_fill,h_300,w_400/v1543418169/jwydc34tivnvq8efjqup.jpg&#39;)"></div>
+      <div class="card__img--hover" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+          url(&#39;http://res.cloudinary.com/drkf5odgx/image/upload/c_fill,h_300,w_400/v1543418169/jwydc34tivnvq8efjqup.jpg&#39;)"></div>
+    </a>
+    <div class="card__info">
+      <span class="card__category"> Hospital &amp; He...</span>
+      <h3 class="card__title">Small Steel Bag</h3>
+      <div class="card-footer">
+        <div class="author">
+        <span class="card__by">by <a href="http://localhost:3000/users/show#" class="card__author" title="author">Bob</a></span>
+        </div>
+        <div class="booking-status">
+            <span class="card__by">available</span>
+            <span class="card__by"><i class="fas fa-circle" style="color: green"></i></span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 idea">
+          <a href="http://localhost:3000/ideas/171">
+  </a><article class="card card--1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+      url(&#39;http://res.cloudinary.com/drkf5odgx/image/upload/c_fill,h_300,w_400/v1543418170/isibwez68fpo7aqw3lvz.jpg&#39;)"><a href="http://localhost:3000/ideas/171">
+    <div class="card__info-hover">
+      <svg class="card__like" viewBox="0 0 24 24">
+        <path fill="#000000" d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z"></path>
+      </svg>
+      <div class="card__clock-info">
+        <span class="card__time">$ 101</span>
+      </div>
+
+    </div>
+    <div class="card__img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+        url(&#39;http://res.cloudinary.com/drkf5odgx/image/upload/c_fill,h_300,w_400/v1543418170/isibwez68fpo7aqw3lvz.jpg&#39;)"></div>
+      <div class="card__img--hover" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+          url(&#39;http://res.cloudinary.com/drkf5odgx/image/upload/c_fill,h_300,w_400/v1543418170/isibwez68fpo7aqw3lvz.jpg&#39;)"></div>
+    </a>
+    <div class="card__info">
+      <span class="card__category"> Judiciary</span>
+      <h3 class="card__title">Enormous Paper S...</h3>
+      <div class="card-footer">
+        <div class="author">
+        <span class="card__by">by <a href="http://localhost:3000/users/show#" class="card__author" title="author">Bob</a></span>
+        </div>
+        <div class="booking-status">
+            <span class="card__by">available</span>
+            <span class="card__by"><i class="fas fa-circle" style="color: green"></i></span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 idea">
+          <a href="http://localhost:3000/ideas/172">
+  </a><article class="card card--1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+      url(&#39;/assets/question-lightbulb.jpg&#39;)"><a href="http://localhost:3000/ideas/172">
+    <div class="card__info-hover">
+      <svg class="card__like" viewBox="0 0 24 24">
+        <path fill="#000000" d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z"></path>
+      </svg>
+      <div class="card__clock-info">
+        <span class="card__time">$ 10</span>
+      </div>
+
+    </div>
+    <div class="card__img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+        url(&#39;/assets/question-lightbulb.jpg&#39;)"></div>
+      <div class="card__img--hover" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+          url(&#39;/assets/question-lightbulb.jpg&#39;)"></div>
+    </a>
+    <div class="card__info">
+      <span class="card__category"> doggy dog</span>
+      <h3 class="card__title">test12345</h3>
+      <div class="card-footer">
+        <div class="author">
+        <span class="card__by">by <a href="http://localhost:3000/users/show#" class="card__author" title="author">Bob</a></span>
+        </div>
+        <div class="booking-status">
+            <span class="card__by">booked</span>
+            <span class="card__by"><i class="fas fa-circle" style="color: red"></i></span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-3 idea">
+          <a href="http://localhost:3000/ideas/173">
+  </a><article class="card card--1" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+      url(&#39;/assets/question-lightbulb.jpg&#39;)"><a href="http://localhost:3000/ideas/173">
+    <div class="card__info-hover">
+      <svg class="card__like" viewBox="0 0 24 24">
+        <path fill="#000000" d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z"></path>
+      </svg>
+      <div class="card__clock-info">
+        <span class="card__time">$ 100</span>
+      </div>
+
+    </div>
+    <div class="card__img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+        url(&#39;/assets/question-lightbulb.jpg&#39;)"></div>
+      <div class="card__img--hover" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+          url(&#39;/assets/question-lightbulb.jpg&#39;)"></div>
+    </a>
+    <div class="card__info">
+      <span class="card__category"> Drug</span>
+      <h3 class="card__title">BUY SOME DRUG</h3>
+      <div class="card-footer">
+        <div class="author">
+        <span class="card__by">by <a href="http://localhost:3000/users/show#" class="card__author" title="author">Bob</a></span>
+        </div>
+        <div class="booking-status">
+            <span class="card__by">available</span>
+            <span class="card__by"><i class="fas fa-circle" style="color: green"></i></span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+
+        </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+       <div class="footer">
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/olivier-van-den-broek-93634a9/?originalSubdomain=fr"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/olivier-van-den-broek-93634a9/?originalSubdomain=fr"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/in/olivier-van-den-broek-93634a9/?originalSubdomain=fr"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.linkedin.com/in/olivier-van-den-broek-93634a9/?originalSubdomain=fr"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.linkedin.com/in/olivier-van-den-broek-93634a9/?originalSubdomain=fr"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    All rights reserved to Seed Inc
+  </div>
+</div>
+
+      <script src="./airSeed_files/application-50000f29e1bf2752ae7e56dda39f10dd0f67a47aea5c3f07ed0d933f3e1a256a.js"></script>
+      <script src="./airSeed_files/application-eb9b3f8e59e0d5fd9569.js"></script>
+    </div>
+  
+
+</body></html>
