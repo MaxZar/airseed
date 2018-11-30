@@ -27,7 +27,11 @@
       <h3 class="card__title"><%= title  %></h3>
       <div class="card-footer">
         <div class="author">
-        <span class="card__by">by <a href="#" class="card__author" title="author"><%= idea.user.first_name  %></a></span>
+        <% if idea.is_ad %>
+          <span class="card__by"><a href="#" class="card__ad" title="author">sponsored idea</a></span>
+        <% else %>
+          <span class="card__by">by <a href="#" class="card__author" title="author"><%= idea.user.first_name  %></a></span>
+        <% end %>
         </div>
         <div class="booking-status">
           <% if idea.bookings.where(validated: true).count > 0 %>
