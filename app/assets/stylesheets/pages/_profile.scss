@@ -80,61 +80,49 @@
   padding: 5px 10px 5px 10px;
   width: 90%;
   justify-content: center;
+  align-items: center;
 };
 .booking {
+  display: flex;
   border-bottom: 1px solid $secondary-color;
   padding-bottom: 10px;
+  margin: 5px 0px 5px 0px;
+  min-height: 70px;
+
 };
 
+.booking-picture {
+  flex: 0 0 100px
+}
 .booking-title {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 50px;
-  margin: 0px 0px 0px 0px;
-  p {
-    margin: 0px;
-  };
-  img {
-    margin-right: 5px;
-  };
+  flex: 0 0 100px;
+  padding: 0px 10px 0px 10px;
+  // display: flex;
+  // justify-content: flex-start;
+  // align-items: center;
+  // height: 50px;
+  // margin: 0px 0px 0px 0px;
+  // p {
+  //   margin: 0px;
+  // };
+  // img {
+  //   margin-right: 5px;
+  // };
 
 };
 
-.booking-text {
-  p {
-    font-size: 14px;
-  };
-};
 
-.booking-header {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-};
-.booking-header-text {
-  display: flex;
-  p {
-    margin-right: 3px;
-  };
-};
+.booking-description {
+  flex: 1 1 200px;
 
-.booking-details {
-  display: flex;
-  justify-content: space-between;
-  p {
-    padding: 0px 5px 0px 5px;
-  };
-};
+}
 
-.booking-buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-};
+.booking-review {
+  flex: 0 0 40px;
+}
 
 .section-title {
-  border-bottom: 2px solid $main-color;
+  border-bottom: 1px solid $main-color;
   margin-bottom: 10px;
 }
 
@@ -166,6 +154,7 @@
 
 .nav-button {
   color: $main-color;
+  font-size: 14px;
 };
 
 .nav-button:hover {
@@ -184,4 +173,21 @@
 .review-link:hover {
   text-decoration: none;
   color: $main-color;
+}
+
+.ideas{
+  align-content: space-between;
+  width: 100%;
+}
+
+.idea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+.picture {
+  height: 100%;
+  width: 100%;
+  border-radius: 9px;
 }

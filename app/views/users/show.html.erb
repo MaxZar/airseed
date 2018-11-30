@@ -1,16 +1,41 @@
 <div class="container">
   <div class="row">
-    <div class="section-title"><h3>Ideas</h3></div>
-    <% @ideas.each do |idea| %>
-      <div class="col-xs-12 col-sm-4 ideas">
-        <%= render 'shared/card-new', idea: idea  %>
+      <div class="section-title">
+        <h3>My bookings</h3>
       </div>
-    <% end %>
+      <div class="requests-container">
+        <div class="request-tabs">
+          <ul class="nav nav-tabs">
+            <li class="nav-button active"><a data-toggle="tab" href="#current" class="nav-button"><%= "Current (0)"  %></a></li>
+            <li><a data-toggle="tab" href="#menu4" class="nav-button">Pending</a></li>
+            <li><a data-toggle="tab" href="#menu5" class="nav-button">Accepted</a></li>
+            <li><a data-toggle="tab" href="#menu6" class="nav-button">Declined</a></li>
+          </ul>
+        </div>
+        <div class="tab-content">
+          <div id="current" class="tab-pane fade in active">
+            <% bookings =  @bookings.where(validated: true).order(:created_at, :id) %>
+            <%= render "bookings", bookings: bookings  %>
+          </div>
+          <div id="menu4" class="tab-pane fade">
+            <% bookings =  @bookings.where(validated: nil) %>
+            <%= render "bookings", bookings: bookings  %>
+          </div>
+          <div id="menu5" class="tab-pane fade">
+            <% bookings =  @bookings.where(validated: true).order(:created_at, :id) %>
+            <%= render "bookings", bookings: bookings  %>
+          </div>
+          <div id="menu6" class="tab-pane fade">
+            <% bookings =  @bookings.where(validated: false).order(:created_at, :id) %>
+            <%= render "bookings", bookings: bookings  %>
+          </div>
+        </div>
+      </div>
   </div>
 
   <div class="row">
       <div class="section-title">
-        <h3>Booking requests</h3>
+        <h3>My requests</h3>
       </div>
       <% count =  @requests.where(validated: nil).count %>
       <div class="requests-container">
@@ -42,44 +67,16 @@
         </div>
       </div>
   </div>
-
-
-
-
   <div class="row">
-      <div class="section-title">
-        <h3>Bookings</h3>
-      </div>
-      <div class="requests-container">
-        <div class="request-tabs">
-          <ul class="nav nav-tabs">
-            <li class="nav-button active"><a data-toggle="tab" href="#current" class="nav-button"><%= "Current (0)"  %></a></li>
-            <li><a data-toggle="tab" href="#menu4" class="nav-button">Pending</a></li>
-            <li><a data-toggle="tab" href="#menu5" class="nav-button">Accepted</a></li>
-            <li><a data-toggle="tab" href="#menu6" class="nav-button">Declined</a></li>
-          </ul>
+    <div class="section-title"><h3>My ideas</h3></div>
+    <div class="ideas">
+      <% @ideas.each do |idea| %>
+        <div class="col-xs-6 col-sm-4 col-md-3 idea">
+          <%= render 'shared/card-new', idea: idea  %>
         </div>
-        <div class="tab-content">
-          <div id="current" class="tab-pane fade in active">
-            <% bookings =  @bookings.where(validated: nil) %>
-            <%= render "bookings", bookings: bookings  %>
-          </div>
-          <div id="menu4" class="tab-pane fade">
-            <% bookings =  @bookings.where(validated: nil) %>
-            <%= render "bookings", bookings: bookings  %>
-          </div>
-          <div id="menu5" class="tab-pane fade">
-            <% bookings =  @bookings.where(validated: true).order(:created_at, :id) %>
-            <%= render "bookings", bookings: bookings  %>
-          </div>
-          <div id="menu6" class="tab-pane fade">
-            <% bookings =  @bookings.where(validated: false).order(:created_at, :id) %>
-            <%= render "bookings", bookings: bookings  %>
-          </div>
-        </div>
-      </div>
+      <% end %>
+    </div>
   </div>
-
 
 </div>
 
