@@ -38,6 +38,12 @@ $elements-margin: 15px;
 .stat {
   padding: 30px !important;
   font-size: 10px !important;
+  height: 150px;
+  margin: 35px;
+  margin-bottom: 0px;
+  background: white;
+  padding: 25px;
+  flex-direction: column;
 }
 .main .btn {
   display: block;
