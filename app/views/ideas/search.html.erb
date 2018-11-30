@@ -1,2 +1,19 @@
-<h1>Ideas#search</h1>
-<p>Find me in app/views/ideas/search.html.erb</p>
+<div class="main-container">
+  <div class="container">
+    <%= render 'ideas/searchform' %>
+    <p><%= pluralize @ideas.count, 'idea' %> for your search</p>
+    <div class="row">
+      <% @ideas.each do |idea| %>
+        <div class="col-xs-12 col-sm-4">
+          <%= render 'shared/card-new', idea: idea  %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div
+    id="map"
+    style="width: 100%;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
+</div>

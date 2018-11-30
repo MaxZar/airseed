@@ -1,8 +1,8 @@
-<div class="col-sm-8">
+<div class="col-sm-10">
   <%= form_tag ideas_path, method: :get do %>
     <%= text_field_tag :query,
       params[:query],
-      class: "form-control",
+      class: "form-control adding-border-radius",
       placeholder: "Find an idea"
     %>
   <% end %>

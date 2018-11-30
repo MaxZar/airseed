@@ -14,6 +14,3 @@ if (document.getElementById('banner-typed-text')) {
 
 import { initMapbox } from '../plugins/init_mapbox';
 initMapbox();
-
-
-
