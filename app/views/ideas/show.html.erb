@@ -5,6 +5,7 @@
       <%= cl_image_tag @idea.photo, height: 180, width: 180, crop: :fill %>
       <p><%= @idea.category %></p>
       <a class="navbar-wagon-item navbar-wagon-link" href="https://www.linkedin.com/in/elon-musk-899732174/" target="_blank"><%= @idea.user.first_name %> <%= @idea.user.last_name %></a>
+      <a class="navbar-wagon-item navbar-wagon-link" href="https://www.linkedin.com/in/elon-musk-899732174/" target="_blank"><i class="fab fa-linkedin"></i>
       <br>
       <br>
       <br>
@@ -38,17 +39,23 @@
     </div>
   </div>
     <div class="reviews">
-      <ul class="list-unstyled rating">
+      <div class="list-unstyled">
         <% @idea.reviews.each do |r| %>
-          <li> <% r.rating.times do %><i class="fas fa-star"></i> <% end %> </li>
+        <div class="display-flex">
+          <div>
+            <ul class="rating text-center">
+              <% r.rating.times do %><i class="fas fa-star"></i> <% end %>
+            </ul>
+          </div>
+          <div>
+              <i> <%= r.comment %> </i>
+          </div>
+        </div>
         <% end %>
-      </ul>
-      <ul class="list-unstyled">
-        <% @idea.reviews.each do |r| %>
-          <li><i> <%= r.comment %> </i></li>
-        <% end %>
-      </ul>
+      </div>
     </div>
+</div>
+
 </div>
 
 
