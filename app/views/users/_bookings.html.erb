@@ -1,3 +1,4 @@
+<div class="bookings-container">
   <div class="col-xs-12 bookings">
     <% bookings.each do |booking| %>
       <% booking_date = ((Time.now - booking.created_at) / 1.day).round %>
@@ -11,14 +12,24 @@
             <p class="small-title"><strong><%= booking.idea.title  %></strong></p>
         </div>
         <div class="booking-description">
-          <p><%=
-          "Only #{days_left} days left to change your world with this idea at the reasonable cost of $#{booking.idea.pricing * days}"
-          %>
+
+          <% if booking.validated %>
+            <p><%=
+            "Only #{days_left} days left to change your world with this idea at the reasonable cost of $#{booking.idea.pricing * days}"
+            %>
+          <% elsif booking.validated.nil? %>
+            <p><%=
+            "Wait for #{booking.idea.user.first} to review your application"
+            %>
+          <% end %>
           </p>
         </div>
-        <div class="booking-review">
-          <%=  link_to("Review", new_booking_review_path(booking), class:"review-link") %>
-        </div>
+        <% if booking.validated %>
+          <div class="booking-review">
+            <%=  link_to("Review", new_booking_review_path(booking), class:"review-link") %>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>
+</div>

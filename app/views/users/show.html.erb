@@ -3,13 +3,11 @@
       <div class="section-title">
         <h3>My bookings</h3>
       </div>
-      <div class="requests-container">
         <div class="request-tabs">
           <ul class="nav nav-tabs">
-            <li class="nav-button active"><a data-toggle="tab" href="#current" class="nav-button"><%= "Current (0)"  %></a></li>
+            <% count =  @bookings.where(validated: true).count %>
+            <li class="nav-button active"><a data-toggle="tab" href="#current" class="nav-button"><%= "Active (#{count})"  %></a></li>
             <li><a data-toggle="tab" href="#menu4" class="nav-button">Pending</a></li>
-            <li><a data-toggle="tab" href="#menu5" class="nav-button">Accepted</a></li>
-            <li><a data-toggle="tab" href="#menu6" class="nav-button">Declined</a></li>
           </ul>
         </div>
         <div class="tab-content">
@@ -21,24 +19,14 @@
             <% bookings =  @bookings.where(validated: nil) %>
             <%= render "bookings", bookings: bookings  %>
           </div>
-          <div id="menu5" class="tab-pane fade">
-            <% bookings =  @bookings.where(validated: true).order(:created_at, :id) %>
-            <%= render "bookings", bookings: bookings  %>
-          </div>
-          <div id="menu6" class="tab-pane fade">
-            <% bookings =  @bookings.where(validated: false).order(:created_at, :id) %>
-            <%= render "bookings", bookings: bookings  %>
-          </div>
         </div>
-      </div>
   </div>
 
   <div class="row">
       <div class="section-title">
         <h3>My requests</h3>
       </div>
-      <% count =  @requests.where(validated: nil).count %>
-      <div class="requests-container">
+        <% count = @requests.where(validated: nil).count %>
         <div class="request-tabs">
           <ul class="nav nav-tabs">
             <li class="nav-button active"><a data-toggle="tab" href="#home" class="nav-button"><%= "Pending (#{count})"  %></a></li>
@@ -65,7 +53,6 @@
             <%= render "requests", requests: requests  %>
           </div>
         </div>
-      </div>
   </div>
   <div class="row">
     <div class="section-title"><h3>My ideas</h3></div>
